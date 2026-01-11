@@ -1,0 +1,109 @@
+ @font-face {
+     font-family: 'Rudaw';
+     src: url('RUDAWREGULAR2.TTF') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ body {
+     font-family: 'Rudaw', sans-serif;
+     background: linear-gradient(135deg, #667eea, #764ba2);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     margin: 0;
+ }
+
+ .profile {
+     background: white;
+     padding: 30px;
+     border-radius: 15px;
+     text-align: center;
+     width: 300px;
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+ }
+
+ .profile img {
+     width: 120px;
+     height: 120px;
+     border-radius: 50%;
+     margin-bottom: 15px;
+ }
+
+ .profile h2 {
+     margin: 10px 0;
+     font-family: 'Rudaw', sans-serif;
+ }
+
+ .social-links a {
+     display: block;
+     margin: 10px 0;
+     padding: 10px;
+     text-decoration: none;
+     color: white;
+     border-radius: 8px;
+     font-size: 18px;
+ }
+
+ .facebook {
+     background: #1877f2;
+ }
+
+ .instagram {
+     background: #e1306c;
+ }
+
+ .tiktok {
+     background: #000000;
+ }
+
+ .snapchat {
+     background: #fffc00;
+     color: black;
+ }
+
+
+
+ p {
+     font-family: 'Rudaw', sans-serif;
+ }
+
+ .profile img {
+     width: 120px;
+     height: 120px;
+     border-radius: 50%;
+     object-fit: cover;
+
+     transform: scale(1);
+     /* دۆخی ئاسایی */
+     transition: transform 0.35s ease;
+     /* نەرمی جوڵە */
+
+     cursor: pointer;
+     border: 4px solid #667eea;
+ }
+
+ /* کاتێک ماوس لەسەرە */
+ .profile img:hover {
+     transform: scale(1.35);
+     /* zoom لە سەنتەر */
+ }
+.social-box {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.social-box a,
+.social-box i {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-box:hover a,
+.social-box:hover i {
+    transform: scale(1.3);
+}
