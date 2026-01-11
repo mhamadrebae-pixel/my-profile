@@ -17,36 +17,79 @@
 
     <div class="profile">
         <img src="IMG_4240.jpg" alt="وێنەی من">
-        <h2>ناوی تۆ</h2>
+
+        <h2>محەمەد</h2>
+
         <p>بەخێربێیت بۆ پڕۆفایلی من</p>
 
+        <button class="dark-btn" onclick="toggleDark()">🌙 Dark Mode</button>
+
+        <button class="copy-btn" onclick="copyLink()">📋 Copy Profile Link</button>
+
+
+
         <div class="social-links">
-            <a href="#" class="facebook">
+
+            <a href="https://www.facebook.com/share/1DGQZNHRgj/?mibextid=wwXIfr" class="facebook">
                 <i class="fab fa-facebook"></i> Facebook
             </a>
+
             <a href="#" class="instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-            <a href="#" class="tiktok">
+
+            <a href="https://www.tiktok.com/@mham4d_01?_r=1&_t=ZS-92y96kkxnCX" class="tiktok">
                 <i class="fab fa-tiktok"></i> TikTok
             </a>
+
             <a href="https://snapchat.com/t/TNyTIXZu" class="snapchat">
                 <i class="fab fa-snapchat"></i> Snapchat
             </a>
+
+            <a href="https://t.me/mham4d_01" class="telegram">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
+
+            <a href="https://wa.me/9647510485057" class="whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+
+            <a href="tel:+9647510485057" class="phone">
+                <i class="fas fa-phone"></i> Call Me
+            </a>
+
+            <div class="qr-box">
+                <img id="qrCode" alt="QR Code">
+                <p>QR بۆ پڕۆفایل</p>
+            </div>
+            
         </div>
     </div>
 
     <script>
         document.querySelector('.profile img').addEventListener('click', function () {
-            alert('بەخێربێیت بۆ پڕۆفایلی من 😊');
+            alert('بۆ دەسەنێی بەو ڕەسمە 😊');
         });
         const profileImg = document.querySelector('.profile img');
 
         profileImg.addEventListener('click', function () {
             profileImg.classList.toggle('active');
         });
+        function toggleDark() {
+            document.body.classList.toggle('dark');
+        }
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("لینک کۆپی کرا ✅");
+        }
+        const siteLink = window.location.href;
+        const qrImg = document.getElementById("qrCode");
+
+        qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
+            + encodeURIComponent(siteLink);
+
     </script>
 
 </body>
 
-</html>
+</html>   
