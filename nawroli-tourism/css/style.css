@@ -1,0 +1,1234 @@
+@import url("https://fonts.googleapis.com/css2?family=Marhey:wght@500;700&family=Noto+Sans+Arabic:wght@400;500;700&display=swap");
+
+/*
+    ئەم فایلە ستایلی سەرەکی وێبسایتەکەیە.
+    هەموو ڕەنگ، ڕێکخستن، تایپۆگرافی و شێوازی بنەڕەتی لێرە دانراون بۆ ئەوەی وێبەکە یەکگرتوو و خاوێن بێت.
+    لە داهاتوودا دەتوانرێت theme ی تر، dark mode، یان design system ـی فراوانتر لە هەمان بنەماوە بنیات بنرێت.
+*/
+
+/*
+    لێرە variable ـە سەرەکییەکان دانراون بۆ ئاسانبوونی بەڕێوەبردنی ڕەنگ و spacing.
+    هۆکاری بەکارهێنانی CSS variables ئەوەیە کە هەر گۆڕانکارییەک لە داهاتوودا بە شێوەی ناوەندی بکرێت.
+    ئەگەر دواتر زمان یاخود brand ـی نوێ زیاد بکرێت، زۆربەی دیزاین لە هەمان شوێنەوە دەتوانرێت بگۆڕدرێت.
+*/
+:root {
+    --color-primary: #0f7b74;
+    --color-primary-dark: #0a5e59;
+    --color-secondary: #5cb6c4;
+    --color-accent: #dff4ee;
+    --color-surface: rgba(255, 255, 255, 0.78);
+    --color-surface-strong: #ffffff;
+    --color-border: rgba(15, 123, 116, 0.14);
+    --color-text: #173431;
+    --color-text-soft: #4b6763;
+    --color-background: #f4fbf8;
+    --color-shadow: rgba(10, 56, 55, 0.12);
+    --container-width: 1120px;
+    --radius-sm: 14px;
+    --radius-md: 22px;
+    --radius-lg: 32px;
+    --shadow-soft: 0 16px 40px var(--color-shadow);
+    --transition: 220ms ease;
+}
+
+/*
+    reset ـی خاوێن بۆ یەکخستنی ڕەفتاری هەموو ئەڵێمێنتەکان.
+    ئەم شێوازە کێشەی جیاوازی نێوان وێبگەڕەکان کەم دەکات.
+    لە داهاتوودا دەتوانرێت reset ی وردتر یان normalize ی تایبەتی بۆی زیاد بکرێت.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans Arabic", sans-serif;
+    background:
+        radial-gradient(circle at top right, rgba(92, 182, 196, 0.20), transparent 22rem),
+        radial-gradient(circle at top left, rgba(15, 123, 116, 0.14), transparent 24rem),
+        var(--color-background);
+    color: var(--color-text);
+    line-height: 1.75;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/*
+    container سیستەمی سنووردارکردنی پانی ناوەڕۆکەکانە.
+    بوونی گرنگە بۆ ئەوەی پەڕەکە لە مۆبایلەوە تا desktop یەکسان و خۆش بینرێت.
+    لە داهاتوودا دەتوانرێت container ـی تایبەتی بۆ landing page ی تر یان admin panel زیاد بکرێت.
+*/
+.container {
+    width: min(calc(100% - 1.5rem), var(--container-width));
+    margin-inline: auto;
+}
+
+/*
+    header ـەکە sticky کراوە بۆ ئەوەی ڕێنمایی سەرەکی هەمیشە لە دەستی بەکارهێنەردا بێت.
+    background ـی نیمە-شەفاف و blur هەستێکی مۆدێرن دەدات بەبێ ئەوەی site ـەکە قورس بکات.
+    دواتر دەتوانرێت button ی login، dashboard، یان switch ـی زمان لێرە زیاد بکرێت.
+*/
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(18px);
+    background: rgba(244, 251, 248, 0.85);
+    border-bottom: 1px solid rgba(15, 123, 116, 0.10);
+}
+
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 0.82rem 0;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: fit-content;
+}
+
+.brand-mark {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 2.8rem;
+    block-size: 2.8rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-family: "Marhey", cursive;
+    font-size: 1.15rem;
+    box-shadow: 0 10px 24px rgba(15, 123, 116, 0.25);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-text strong,
+.hero-content h1,
+.section-heading h2 {
+    font-family: "Marhey", cursive;
+}
+
+.brand-text strong {
+    font-size: 1rem;
+}
+
+.brand-text small {
+    color: var(--color-text-soft);
+    font-size: 0.78rem;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: none;
+}
+
+.main-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.86rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    color: var(--color-text-soft);
+    transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.main-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    background: rgba(15, 123, 116, 0.10);
+    color: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+
+/*
+    لە مۆبایلدا navigation دەبێتە horizontal scroll بۆ ئەوەی header قەرەباڵغ نەبێت و هەموو بەشەکان بە ئاسانی ببینرێن.
+    switch ـی زمان هەروا بچووک و پاک دەمێنێتەوە بۆ ئەوەی لەگەڵ brand و navigation هاوسەنگ بێت.
+    ئەم CSS ـە تەنها دیزاین دەگۆڕێت و هیچ کاریگەرییەکی لەسەر logic ـی زمان یان JavaScript نییە.
+*/
+.header-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: stretch;
+}
+
+.language-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.25rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(15, 123, 116, 0.14);
+    box-shadow: 0 10px 24px rgba(10, 56, 55, 0.08);
+    backdrop-filter: blur(14px);
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+    align-self: flex-start;
+}
+
+.language-switch::-webkit-scrollbar {
+    display: none;
+}
+
+html[dir="ltr"] .language-switch {
+    align-self: flex-start;
+}
+
+html[dir="rtl"] .language-switch {
+    align-self: flex-end;
+}
+
+.language-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 0.45rem 0.75rem;
+    background: transparent;
+    color: var(--color-text-soft);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.language-button:hover,
+.language-button:focus-visible {
+    color: var(--color-primary-dark);
+    background: rgba(15, 123, 116, 0.08);
+    transform: translateY(-1px);
+}
+
+.language-button.is-active {
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    box-shadow: 0 8px 18px rgba(15, 123, 116, 0.22);
+}
+
+/*
+    hero بە background image و overlay ی نەرمی سروشتی دروست کراوە.
+    هۆکارەکە ئەوەیە وێنەکە سەرەکیترین هەستی ناوچەکە بگوازێتەوە، بەڵام دەقەکانیش بە ئاسانی بخوێندرێنەوە.
+    لە داهاتوودا دەتوانرێت seasonal hero، callout ـی event، یان booking CTA ی زیاتر بۆی زیاد بکرێت.
+*/
+.hero-section {
+    position: relative;
+    min-height: calc(100vh - 5rem);
+    display: grid;
+    align-items: end;
+    padding: 7rem 0 3rem;
+    background:
+        linear-gradient(180deg, rgba(5, 38, 40, 0.20) 0%, rgba(5, 38, 40, 0.72) 100%),
+        url("../images/hero.jpg") center/cover no-repeat;
+    color: #f5fffc;
+}
+
+.hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(125, 222, 209, 0.24), transparent 24rem),
+        radial-gradient(circle at bottom right, rgba(92, 182, 196, 0.18), transparent 20rem);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hero-kicker {
+    margin: 0;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-content h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 8vw, 4.6rem);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.hero-description {
+    margin: 0;
+    max-width: 40rem;
+    color: rgba(245, 255, 252, 0.88);
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-highlights li {
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    font-size: 0.92rem;
+}
+
+/*
+    button ـەکان بە شێوازی یەکگرتوو دانراون بۆ ئەوەی call to action ـەکان دیار و ئاسان بن.
+    primary و secondary جیا کراون بۆ ئەوەی سەرنج بۆ دوگمەی گرنگتر ببرێت.
+    لە داهاتوودا دەتوانرێت states ـی زیاتر و component library ی button بۆ بەشەکانی تر زیاد بکرێت.
+*/
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.35rem;
+    border: 0;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.button:hover,
+.button:focus-visible {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background: linear-gradient(135deg, var(--color-primary), #15948c);
+    color: white;
+    box-shadow: 0 16px 28px rgba(15, 123, 116, 0.24);
+}
+
+.button-secondary {
+    background: rgba(255, 255, 255, 0.16);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/*
+    section spacing ـەکان بۆ هەناسەدانی دیزاین و جیاکردنەوەی باشی ناوەڕۆک دانراون.
+    ئەم شێوازە وا دەکات وێبەکە لە مۆبایلداش شلوغ نەبێت.
+    لە داهاتوودا دەتوانرێت spacing scale ی فراوانتر بۆ template ـەکانی تر دیاری بکرێت.
+*/
+.section {
+    padding: 4.5rem 0;
+}
+
+.section-accent {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(223, 244, 238, 0.72));
+}
+
+.section-heading {
+    display: grid;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+.section-label {
+    display: inline-flex;
+    width: fit-content;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(15, 123, 116, 0.10);
+    color: var(--color-primary-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 5vw, 2.8rem);
+    line-height: 1.3;
+}
+
+.section-heading p {
+    margin: 0;
+    max-width: 48rem;
+    color: var(--color-text-soft);
+}
+
+/*
+    glass-card و about-layout بۆ ناساندنی دەربارە بە شێوەیەکی مۆدێرن بەکارهاتوون.
+    ئەم layout ـە لە مۆبایلدا stack دەبێت و لە شاشە گەورەترەکاندا بۆ دوو ستوون ئامادەیە.
+    لە داهاتوودا دەتوانرێت لەم cards ـەدا stats، quote، یان وێنەی ناوچەکە زیاد بکرێت.
+*/
+.about-layout {
+    display: grid;
+    gap: 1rem;
+}
+
+.glass-card {
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.glass-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.glass-card p {
+    margin: 0;
+    color: var(--color-text-soft);
+}
+
+/*
+    services-grid بە CSS Grid دروست کراوە بۆ ئەوەی کارتەکان بە شێوەیەکی پاک ڕیزبەندی بن.
+    کارتەکان layout ـی هاوشێوەیان هەیە بۆ ئەوەی خۆندنەوەی نرخ و ژمارە و دوگمەی رزێرڤ ئاسان بێت.
+    لە داهاتوودا دەتوانرێت sorting، filtering، badge ی available، یان favorite state بۆ کارتەکان زیاد بکرێت.
+*/
+.services-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+/*
+    ئەم hover effect ـە سەرنجی بەکارهێنەر بۆ card ـەکە زیاتر دەکێشێت و هەستێکی زێندووتر بە خزمەتگوزارییە گەشتیارییەکان دەدات.
+    هەروەها box-shadow و movement ـی سووک وا دەکات card ـەکان مۆدێرنتر و پڕۆفیشناڵتر دەرکەون.
+*/
+.service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 123, 116, 0.08);
+    box-shadow: 0 14px 32px rgba(10, 56, 55, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 48px rgba(10, 56, 55, 0.18);
+}
+
+.service-media {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    background: #dfeee9;
+}
+
+/*
+    بەرزی وێنەکە بە شێوەیەکی جێگیر دیاری کراوە بۆ ئەوەی هەموو card ـەکان layout ـێکی پاک و هاوشێوەیان هەبێت.
+    ئەم شێوازە بە تایبەتی بۆ خزمەتگوزارییە گەشتیارییەکان گرنگە چونکە وێنە سەرەتا سەرنج ڕادەکێشێت.
+*/
+.service-media img,
+.service-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 0.35s ease;
+}
+
+.service-card:hover .service-media img,
+.service-card:hover .service-image {
+    transform: scale(1.06);
+}
+
+.service-body,
+.service-content {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1rem;
+    flex: 1;
+}
+
+/*
+    ئەم badge ـە یارمەتی دەدات جۆری خزمەتگوزارییەکە زوو بناسرێت و card ـەکە لە یەکەم بینینەوە ڕوونتر بێت.
+    شوێنی سەرەوەی وێنەکە هەڵبژێردراوە بۆ ئەوەی category بە خێرایی لە دیدی بەکارهێنەر بکەوێت.
+*/
+.service-badge,
+.service-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    width: fit-content;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 10px 22px rgba(15, 123, 116, 0.22);
+}
+
+.service-body h3,
+.service-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.service-body p,
+.service-description {
+    margin: 0;
+    color: var(--color-text-soft);
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+.service-meta {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.service-meta li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid rgba(15, 123, 116, 0.10);
+    border-radius: 16px;
+    background: rgba(15, 123, 116, 0.04);
+}
+
+.service-meta li:last-child {
+    padding-bottom: 0.75rem;
+}
+
+.service-meta strong {
+    color: var(--color-text);
+}
+
+.service-meta span,
+.service-meta a {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+}
+
+.service-action {
+    width: 100%;
+}
+
+.service-body .button-secondary {
+    background: rgba(15, 123, 116, 0.08);
+    color: var(--color-primary-dark);
+    border: 1px solid rgba(15, 123, 116, 0.14);
+}
+
+.service-body .button-primary,
+.service-whatsapp {
+    margin-top: 0.7rem;
+    width: 100%;
+}
+
+.noscript-note {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: #fff7d8;
+    color: #6e5600;
+}
+
+/*
+    ئەم style ـانە بۆ پەڕەی وردەکاریی خزمەتگوزاری زیاد کراون.
+    هۆکاری بوونیان ئەوەیە هەر خزمەتگوزارییەک بتوانێت بە شێوەیەکی خاوێن و مۆدێرن، وێنە، دەقی درێژ، زانیاریی خاوەن، و media ی زیاتر پیشان بدات.
+    لە داهاتوودا دەتوانرێت review، rating، calendar ی رزێرڤ، یان related services لەسەر هەمان بنەما زیاد بکرێت.
+*/
+.detail-hero {
+    padding: 2.4rem 0 1rem;
+    background:
+        radial-gradient(circle at top right, rgba(92, 182, 196, 0.16), transparent 22rem),
+        linear-gradient(180deg, rgba(223, 244, 238, 0.78), rgba(244, 251, 248, 0.4));
+}
+
+.detail-hero .section-heading {
+    gap: 0.9rem;
+}
+
+.detail-hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 3.3rem);
+    line-height: 1.2;
+}
+
+.detail-layout {
+    display: grid;
+    gap: 1rem;
+    align-items: start;
+}
+
+.detail-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 123, 116, 0.12);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.detail-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: calc(var(--radius-md) - 0.45rem);
+}
+
+.detail-card h1,
+.detail-card h2,
+.detail-card h3 {
+    margin: 0;
+}
+
+.detail-card p {
+    margin: 0;
+    color: var(--color-text-soft);
+}
+
+.detail-card iframe {
+    width: 100%;
+    min-height: 20rem;
+    border: 0;
+}
+
+.detail-section {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.detail-section + .detail-section {
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(15, 123, 116, 0.16);
+}
+
+.detail-meta {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.detail-meta li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px dashed rgba(15, 123, 116, 0.14);
+}
+
+.detail-meta li:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.detail-meta strong {
+    color: var(--color-text);
+}
+
+.detail-meta span,
+.detail-meta a {
+    color: var(--color-text-soft);
+}
+
+.detail-meta a {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+.detail-gallery {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.detail-gallery .gallery-card {
+    box-shadow: none;
+}
+
+.detail-gallery .gallery-card span {
+    font-size: 0.88rem;
+}
+
+/*
+    ئەم style ـانە بۆ فۆرمی رزێرڤی پەڕەی وردەکاریی خزمەتگوزاری دانراون.
+    هۆکاری بوونیان ئەوەیە فۆرمی WhatsApp-only بە شێوەیەکی خاوێن، مۆبایل-دۆست، و ئاسان بۆ پڕکردنەوە پیشان بدرێت و خاوەن وردەکاریی میوان بە شێوەی ڕاستەوخۆ وەربگرێت.
+    ئەم شێوازانە سووکن و لە homepage دوور ماون بۆ ئەوەی پەڕەی سەرەکی نەشکێت و performance پارێزراو بمێنێت.
+    لە داهاتوودا دەتوانرێت date picker ی باشتر، validation state ی زیاتر، یان پەیوەستبوون بە Google Sheet و admin dashboard لەسەر هەمان بنەما زیاد بکرێت.
+*/
+.booking-form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.form-group {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(15, 123, 116, 0.16);
+    border-radius: var(--radius-sm);
+    background: rgba(244, 251, 248, 0.9);
+    color: var(--color-text);
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 7rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(15, 123, 116, 0.38);
+    box-shadow: 0 0 0 4px rgba(92, 182, 196, 0.14);
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.form-status {
+    min-height: 1.5rem;
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.form-status.is-success {
+    color: #0b6b4d;
+}
+
+.form-status.is-error {
+    color: #9a3b21;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    padding: 0.7rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(15, 123, 116, 0.08);
+    border: 1px solid rgba(15, 123, 116, 0.14);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.main-nav .back-link {
+    padding: 0.7rem 0.95rem;
+    color: var(--color-primary-dark);
+    background: rgba(15, 123, 116, 0.08);
+    border: 1px solid rgba(15, 123, 116, 0.14);
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(15, 123, 116, 0.12);
+    border-color: rgba(15, 123, 116, 0.2);
+}
+
+/*
+    reasons-grid بۆ نیشاندانی خاڵە گرنگەکان بە icon و دەقی کورت بەکارهاتووە.
+    بوونی ئەوەیە کە بەکارهێنەر لە تەنها چاوپێکەوتنێکدا بزانێت ناوچەکە چ شتێک تایبەت دەکات.
+    لە داهاتوودا دەتوانرێت ئەم کارتانه‌ بە testimonial، statistic، یان rating بگۆڕدرێن.
+*/
+.reasons-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.reason-card {
+    padding: 1.4rem;
+    background: var(--color-surface-strong);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.reason-icon {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 3.2rem;
+    block-size: 3.2rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(15, 123, 116, 0.12), rgba(92, 182, 196, 0.18));
+    font-size: 1.35rem;
+}
+
+.reason-card h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.18rem;
+}
+
+.reason-card p {
+    margin: 0;
+    color: var(--color-text-soft);
+}
+
+/*
+    gallery-grid و gallery-card بۆ پیشاندانی وێنەکان بە شێوەی responsive دروست کراون.
+    هەر card وەک دوگمە کار دەکات بۆ ئەوەی بەکارهێنەر بە کلیکێک وێنەکە گەورە بکاتەوە.
+    لە داهاتوودا دەتوانرێت masonry layout، captions ی درێژتر، یان category filter بۆی زیاد بکرێت.
+*/
+.gallery-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.gallery-card {
+    display: grid;
+    gap: 0.85rem;
+    padding: 0;
+    overflow: hidden;
+    text-align: right;
+    background: var(--color-surface-strong);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.gallery-card span {
+    padding: 0 1rem 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+/*
+    map-shell بۆ پاراستنی ئاسپێکت و خاوێنی iframe دروست کراوە.
+    بە هۆی border radius و shadow، map بە شێوەیەکی یەکگرتوو لەگەڵ دیزاینەکە دەگونجێت.
+    لە داهاتوودا دەتوانرێت overlay ـی زانیاری، route actions، یان GPS buttons زیاد بکرێت.
+*/
+.map-shell {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    background: var(--color-surface-strong);
+}
+
+.map-shell iframe {
+    width: 100%;
+    min-height: 22rem;
+    border: 0;
+}
+
+/*
+    ئەم style ـانە بۆ preview ی ڤیدیۆی Facebook دانراون.
+    ڤیدیۆکە لە خۆی Facebook دەکرێتەوە و iframe ی قورس لە ناو site بەکارناهێندرێت.
+    ئەم شێوازە site ـەکە خێرا دەمێنێتەوە و لە مۆبایلدا هێواشبوون و قورس‌بوونی زیاد ڕوونادات.
+*/
+.video-preview {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.video-preview img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.video-play-button {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    color: white;
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    font-weight: bold;
+    box-shadow: 0 12px 24px rgba(10, 56, 55, 0.22);
+}
+
+/*
+    contact-shell و contact-grid شوێنی پەیوەندییەکان بە شێوەی card ڕێکدەخەن.
+    بوونی card جیاوازەکان وا دەکات موبایل، WhatsApp و social بە سادەیی بەردەست بن.
+    لە داهاتوودا دەتوانرێت form validation، live chat، یان business hours بۆی زیاد بکرێت.
+*/
+.contact-shell {
+    display: grid;
+    gap: 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-card {
+    padding: 1.4rem;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.65rem;
+    font-size: 1.15rem;
+}
+
+.contact-card a {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+}
+
+.contact-card p {
+    margin-bottom: 0;
+    color: var(--color-text-soft);
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.social-links a {
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(15, 123, 116, 0.08);
+}
+
+/*
+    lightbox بۆ گەورەکردنەوەی وێنەکان بە شێوەی overlay بەکاردێت.
+    ئەم شێوازە بەکارهێنەر لە پەڕەیەکدا دەهێڵێتەوە و experience ی باشتر دروست دەکات.
+    لە داهاتوودا دەتوانرێت keyboard navigation، next/prev controls، و caption panel ی زیاتر بۆی زیاد بکرێت.
+*/
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(6, 29, 30, 0.82);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    width: min(100%, 60rem);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    background: rgba(245, 255, 252, 0.96);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.lightbox-content img {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: calc(var(--radius-md) - 0.5rem);
+}
+
+.lightbox-content p {
+    margin: 0.9rem 0 0;
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    inline-size: 3rem;
+    block-size: 3rem;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/*
+    footer کۆتایی وێبەکەیە و دوگمەی گەڕانەوە بۆ سەرەوە تێدایە.
+    ئەم بەشە هەستێکی تەواوبوون بە پەڕەکە دەدات و بەکارهێنەر یارمەتیدەدات دووبارە بگەڕێتەوە بۆ سەرەتا.
+    لە داهاتوودا دەتوانرێت legal links، sitemap، یان partner section بۆی زیاد بکرێت.
+*/
+.site-footer {
+    padding: 1.4rem 0 2rem;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: var(--color-text-soft);
+}
+
+.footer-inner p {
+    margin: 0;
+}
+
+/*
+    ئەم style ـانە بۆ credit و badge ی دروستکەری وێبسایت زیاد کراون.
+    هۆکاریان ئەوەیە کە زانیاریی "کێ دروستی کردووە" بە شێوەیەکی پڕۆفیشناڵ و ناسک لە footer نیشان بدرێت و متمانەی میوان زیاد بکات.
+    لە داهاتوودا دەتوانرێت portfolio link، profile image ی بچووک، یان studio/team credit لە هەمان بنەماوە بۆیان زیاد بکرێت.
+*/
+.footer-meta {
+    display: grid;
+    gap: 0.55rem;
+    flex: 1 1 18rem;
+}
+
+/*
+    ئەم style ـانە ناساندنی دروستکەری وێبسایتەکە لە footer پیشان دەدەن.
+    لینکی پڕۆفایل ڕێگەیەک دەدات سەردانکەران کارەکانی گەشەپێدەر ببینن.
+    ئەمە یارمەتی دەدات پڕۆژەکە باوەڕپێکراوتر و پیشەییتر دیار بێت.
+*/
+.footer-credit {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.9rem 1rem;
+    width: fit-content;
+    max-width: 100%;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(223, 244, 238, 0.84)),
+        rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(15, 123, 116, 0.16);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 12px 26px rgba(10, 56, 55, 0.08);
+}
+
+.footer-credit strong {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.45rem;
+    align-items: center;
+    color: var(--color-text);
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+.credit-name {
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    text-decoration-color: rgba(92, 182, 196, 0.55);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18rem;
+    transition:
+        color var(--transition),
+        text-decoration-color var(--transition),
+        transform var(--transition);
+}
+
+.credit-name:hover,
+.credit-name:focus-visible {
+    color: var(--color-secondary);
+    text-decoration-color: currentColor;
+    transform: translateY(-1px);
+}
+
+.footer-credit small {
+    display: block;
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: isolate;
+    color: var(--color-text-soft);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    overflow-wrap: anywhere;
+}
+
+.footer-actions {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: start;
+}
+
+.creator-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(15, 123, 116, 0.1), rgba(92, 182, 196, 0.16));
+    border: 1px solid rgba(15, 123, 116, 0.12);
+    color: var(--color-primary-dark);
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: normal;
+    unicode-bidi: isolate;
+    box-shadow: 0 10px 24px rgba(10, 56, 55, 0.08);
+}
+
+.footer-back-link {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+}
+
+/*
+    reveal animation ـەکان سووکن و تەنها بۆ زۆرکردنی هەستی ژیان لە وێبەکە بەکاردێن.
+    بە بەکارهێنانی opacity و translate ی کەم، performance پارێزراو دەبێت.
+    لە داهاتوودا دەتوانرێت animation pattern ـی تر بۆ بەشە تایبەتەکان زیاد بکرێت، بەڵام نابێت قورس بکرێت.
+*/
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lazy-image {
+    opacity: 0;
+    transition: opacity 400ms ease;
+}
+
+.lazy-image.is-loaded {
+    opacity: 1;
+}
+
+/*
+    پاراستنی user experience بۆ ئەوانەی motion ی زۆر نایەنێت.
+    ئەگەر user سیستەمی کەمکردنەوەی animation دیاری کردبێت، هەموو جووڵەی نەرم کەم دەکرێت.
+    ئەم کارە accessibility باشتر دەکات و لە داهاتوودا دەتوانرێت بە بەشەکانی ترش بگوازرێتەوە.
+*/
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal.is-visible,
+    .lazy-image,
+    .lazy-image.is-loaded {
+        opacity: 1;
+        transform: none;
+    }
+}

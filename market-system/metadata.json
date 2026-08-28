@@ -1,0 +1,6 @@
+{
+  "name": "سیستەمی بەڕێوەبردنی مارکێت و فرۆشگا",
+  "description": "سیستەمی پێشکەوتووی بەڕێوەبردنی مارکێت، خاڵی فرۆشتنی کاشیێر (POS)، بارکۆد، بەرواری بەسەرچوون، قەرز، شفت و قازانج بە زمانی کوردی",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="وردەکاریی خزمەتگوزارییەکانی نەوڕۆڵی بۆ گەشتیاران و خێزانەکان.">
+    <meta name="author" content="Mhamad Rebar">
+    <meta name="theme-color" content="#0f7b74">
+    <title>وردەکاری خزمەتگوزاری – Visit Nawroli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!--
+        ئەم header ـە ناسنامەی وێبسایت و ڕێگای گەڕانەوە بۆ سەرەتا دەدات.
+        بوونی گرنگە بۆ ئەوەی میوان لە پەڕەی وردەکاریداش هەست بە یەکگرتوویی وێبەکە بکات و بە ئاسانی بگەڕێتەوە بۆ ماڵپەڕی سەرەکی.
+        لە داهاتوودا دەتوانرێت breadcrumb، ناوبەری زیاتر، یان دوگمەی هاوبەشکردن بۆی زیاد بکرێت.
+    -->
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">ن</span>
+                <span class="brand-text">
+                    <strong data-i18n="brandTitle">گەشتی نەوڕۆڵی</strong>
+                    <small data-i18n="brandSubtitle">Visit Nawroli</small>
+                </span>
+            </a>
+
+            <div class="header-tools">
+                <nav class="main-nav" aria-label="گەڕانەوە بۆ سەرەتا" data-i18n-aria-label="detailsNavAria">
+                    <a class="back-link" href="index.html#services" data-i18n="detailBackHome">گەڕانەوە بۆ سەرەتا</a>
+                </nav>
+
+                <!--
+                    ئەم دوگمانە سیستەمی سادەی زمان بە localStorage بەڕێوەدەبەن.
+                    هەر خزمەتگوزارییەک بە هەمان زمانی هەڵبژێردراو نیشان دەدرێت و WhatsApp ـیش بە هەمان زمان نزیک دەبێتەوە، بەبێ قورسکردنی پەڕەکە.
+                    لە داهاتوودا دەتوانرێت ئەم شێوازە بە i18n ی بەهێزتر یان dashboard ی بەڕێوەبردن بگۆڕدرێت.
+                -->
+                <div class="language-switch" aria-label="هەڵبژاردنی زمان" data-i18n-aria-label="languageSwitchAria">
+                    <button class="language-button" type="button" data-language="ku">کوردی</button>
+                    <button class="language-button" type="button" data-language="ar">عربي</button>
+                    <button class="language-button" type="button" data-language="en">English</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--
+        ئەم main ـە شوێنی نیشاندانی هەموو وردەکارییەکانی خزمەتگوزارییەکەیە.
+        هۆکاری بوونی ئەوەیە app.js بتوانێت بە پشتبەستن بە id ـی URL، ناوەڕۆکی گونجاو و فۆرمی رزێرڤی WhatsApp-only لێرە دابنێت بەبێ دروستکردنی پەڕەی جیاواز بۆ هەر خزمەتگوزارییەک.
+        خاوەن لە ڕێگەی ئەم پەڕەیەوە وردەکاریی میوان بە شێوەی ڕاستەوخۆ لە WhatsApp وەردەگرێت و داتا بۆ شوێنێکی تر نانێردرێت.
+        لە داهاتوودا دەتوانرێت skeleton loading، related services، review section، یان پەیوەستبوون بە Google Sheet و admin dashboard بۆی زیاد بکرێت.
+    -->
+    <main id="serviceDetailsRoot">
+        <section class="section">
+            <div class="container">
+                <article class="detail-card reveal">
+                    <h1 data-i18n="detailsLoadingTitle">وردەکاری خزمەتگوزاری بار دەکرێت</h1>
+                    <p data-i18n="detailsLoadingText">تکایە چاوەڕێ بکە تا زانیاریی خزمەتگوزارییەکە لە data.js بخوێندرێتەوە.</p>
+                </article>
+
+                <noscript>
+                    <p class="noscript-note" data-i18n="detailsNoScript">بۆ بینینی وردەکارییە داینامیکییەکان، پێویستە JavaScript چالاک بێت.</p>
+                </noscript>
+            </div>
+        </section>
+    </main>
+
+    <!--
+        ئەم lightbox ـە بۆ وێنەکانی گەلەریی ناو پەڕەی وردەکاری بەکاردێت.
+        بوونی ئەوەیە کە بەکارهێنەر بتوانێت وێنەکانی زیاتر بە گەورەیی ببینێت بەبێ جێهێشتنی هەمان پەڕە.
+        لە داهاتوودا دەتوانرێت slideshow، next/prev controls، یان swipe gesture بۆ مۆبایل بۆی زیاد بکرێت.
+    -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="lightboxTitle">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="داخستنی وێنە" data-i18n-aria-label="lightboxCloseLabel">×</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <p id="lightboxTitle"></p>
+        </div>
+    </div>
+
+    <!--
+        ئەم footer ـە کۆتایی پەڕەی وردەکارییە و زانیاریی بنەڕەتی وێبسایت نیشان دەدات.
+        بوونی گرنگە چونکە هەستێکی تەواوبوون و متمانە بۆ میوان دروست دەکات و هێشتاش ڕێگای گەڕانەوە بۆ سەرەوە بەردەست دەمێنێتەوە.
+        لە داهاتوودا دەتوانرێت لینک بۆ policy، social media، یان گۆڕانکاریی دوایین لێرە زیاد بکرێت.
+    -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-meta">
+                <p>Visit Nawroli © <span id="currentYear"></span></p>
+
+                <!--
+                    ئەم بەشە پیشاندەری ئەو کەسەیە کە وێبسایتەکەی دروست کردووە.
+                    بوونی ئەم credit ـە متمانە دروست دەکات و وا دەکات میوانەکان بزانن پرۆژەکە بە شێوەی پڕۆفیشناڵ ئامادە کراوە.
+                    لە داهاتوودا دەتوانرێت لینک بۆ portfolio، email ی دروستکەر، یان لیستی هاوبەشانی پرۆژەکەی بۆ زیاد بکرێت.
+                -->
+                <!--
+                    ئەم بەشە پیشاندەری ئەوەیە کێ ئەم وێبسایتەی دروست کردووە.
+                    لینکی پڕۆفایل ڕێگەیەک دەدات سەردانکەران کارەکانی گەشەپێدەرەکە ببینن.
+                    ئەمە یارمەتی دەدات پڕۆژەکە باوەڕپێکراوتر و پیشەییتر دیار بێت.
+                -->
+                <div class="footer-credit" aria-label="زانیاریی دروستکەری وێبسایت">
+                    <strong class="credit-title">
+                        <span>دروستکراوە لەلایەن</span>
+                        <a class="credit-name" href="https://mhamadrebae-pixel.github.io/my-profile/" target="_blank"
+                            rel="noopener noreferrer" lang="en" dir="ltr">Mhamad Rebar</a>
+                    </strong>
+                    <small lang="en" dir="ltr">Designed &amp; Developed by Mhamad Rebar</small>
+                </div>
+            </div>
+
+            <!--
+                ئەم badge ـە وەک ناسنامەیەکی بچووک بۆ دروستکەری وێبسایت بەکاردێت.
+                هۆکاری بوونی ئەوەیە کە بە شێوەی ناسک و مۆدێرن ناوی دروستکەر نیشان بدات و هەستی متمانە و خاوەنداری زیاد بکات.
+                لە داهاتوودا دەتوانرێت ئەم badge ـە clickable بکرێت بۆ portfolio ی دروستکەر یان social link.
+            -->
+            <div class="footer-actions">
+                <span class="creator-badge" lang="en" dir="ltr">Website by Mhamad Rebar</span>
+                <a class="footer-back-link" href="#top" data-scroll-target data-i18n="footerBackTop">گەڕانەوە بۆ سەرەوە</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>

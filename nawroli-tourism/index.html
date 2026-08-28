@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="گەشتی نەوڕۆڵی - وێبسایتێکی مۆدێرن بۆ ناساندنی شوێنی گەشتیاری نەوڕۆڵی لە هەڵەبجە و خزمەتگوزارییەکانی.">
+    <meta name="author" content="Mhamad Rebar">
+    <meta name="theme-color" content="#0f7b74">
+    <title>گەشتی نەوڕۆڵی – Visit Nawroli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!--
+        ئەم header ـە ناسنامە و ڕێنمایی سەرەکی وێبسایتەکەیە.
+        بوونی بۆ ئەوەی گەشتیار لە هەر شوێنێکدا بتوانێت بە خێرایی بگوازرێتەوە بۆ بەشە گرنگەکان.
+        لە داهاتوودا دەتوانرێت menu ـی مۆبایل، زمانە زیادەکان، و دوگمەی dashboard ی بەڕێوەبردن بۆی زیاد بکرێت.
+    -->
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a class="brand" href="#top" data-scroll-target>
+                <span class="brand-mark">ن</span>
+                <span class="brand-text">
+                    <strong data-i18n="brandTitle">گەشتی نەوڕۆڵی</strong>
+                    <small data-i18n="brandSubtitle">Visit Nawroli</small>
+                </span>
+            </a>
+
+            <div class="header-tools">
+                <nav class="main-nav" aria-label="ڕێنمایی سەرەکی" data-i18n-aria-label="navMainAria">
+                    <a href="#about" data-scroll-target data-i18n="navAbout">دەربارە</a>
+                    <a href="#services" data-scroll-target data-i18n="navServices">خزمەتگوزارییەکان</a>
+                    <a href="#why-visit" data-scroll-target data-i18n="navWhyVisit">بۆچی نەوڕۆڵی</a>
+                    <a href="#gallery" data-scroll-target data-i18n="navGallery">گەلەری</a>
+                    <a href="#map" data-scroll-target data-i18n="navMap">نەخشە</a>
+                    <a href="#contact" data-scroll-target data-i18n="navContact">پەیوەندی</a>
+                </nav>
+
+                <!--
+                    ئەم دوگمانە سیستەمی سادەی زمان بە localStorage بەڕێوەدەبەن.
+                    هەر کلیکێک زمانەکە پاشەکەوت دەکات و هەمان پەڕە دووبارە بە هەمان زمان نیشان دەدات، بەبێ قورسکردنی وێبسایت.
+                    لە داهاتوودا دەتوانرێت ئەم شێوازە بە i18n ی بەهێزتر، dashboard، یان زمانە زیاتر بگۆڕدرێت.
+                -->
+                <div class="language-switch" aria-label="هەڵبژاردنی زمان" data-i18n-aria-label="languageSwitchAria">
+                    <button class="language-button" type="button" data-language="ku">کوردی</button>
+                    <button class="language-button" type="button" data-language="ar">عربي</button>
+                    <button class="language-button" type="button" data-language="en">English</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--
+            ئەم بەشە سەرەکی وێبەکەیە و یەکەم شوێنە کە چاوەڕوانی سەرنجی گەشتیار دەکات.
+            هۆکاری بوونی ئەوەیە کە بە وێنەی گەورە و دەقێکی ڕوون، جوانی نەوڕۆڵی و هەستێکی ئارامی دەگوازێتەوە.
+            لە داهاتوودا دەتوانرێت ڤیدیۆی background، slider ی وێنە، یان بانگەشەی وەرزی گەشتی بۆی زیاد بکرێت.
+        -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-scrim"></div>
+
+            <div class="container hero-content reveal">
+                <p class="hero-kicker" data-i18n="heroKicker">هەڵەبجە • هەرێمی کوردستان • عێراق</p>
+                <h1 id="hero-title" data-i18n="heroTitle">گەشتی نەوڕۆڵی – Visit Nawroli</h1>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">شوێنێکی سروشتی و ئارام بۆ خێزان و گەشتیاران</p>
+                <p class="hero-description" data-i18n="heroDescription">
+                    نەوڕۆڵی بە دیمەنە سروشتییەکان، ڕوانگەی ڕووبار، خانووەکانی ناو ئاو، بەلەم، جێتسکی و کەشوهەوای خۆشەوە
+                    ناسراوە.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#services" data-scroll-target data-i18n="heroButtonServices">بینینی خزمەتگوزارییەکان</a>
+                    <a class="button button-secondary" href="#gallery" data-scroll-target data-i18n="heroButtonGallery">بینینی گەلەری</a>
+                </div>
+
+                <ul class="hero-highlights" aria-label="خاڵە گرنگەکانی نەوڕۆڵی" data-i18n-aria-label="heroHighlightsAria">
+                    <li data-i18n="heroHighlightFamily">خێزان-دۆست</li>
+                    <li data-i18n="heroHighlightWater">چالاکییەکانی ناو ئاو</li>
+                    <li data-i18n="heroHighlightPicnic">شوێنی پیکنیک و حەسانەوە</li>
+                </ul>
+            </div>
+        </section>
+
+        <!--
+            ئەم بەشە بۆ ناساندنی ناوچەی نەوڕۆڵی و هەست و کەشوهەوای گەشتیارییەکەی دروست کراوە.
+            بوونی گرنگە چونکە پێش ئەوەی گەشتیار خزمەتگوزارییەکان ببینێت، پێویستە وێنایەکی ڕوون لە شوێنەکەی هەبێت.
+            لە داهاتوودا دەتوانرێت مێژووی ناوچەکە، وەرزە باشەکانی سەردان، و وردەکاریی ژینگەپارێزی تێدا زیاد بکرێت.
+        -->
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label" data-i18n="aboutLabel">دەربارەی نەوڕۆڵی</span>
+                    <h2 id="about-title" data-i18n="aboutTitle">شوێنێک بۆ هەناسەدان، پیکنیک و ئارامبوونەوە</h2>
+                    <p data-i18n="aboutText">
+                        ناوچەی هەڵەبجە و دەوروبەری سروشتییەکانی هەموو ساڵێک هەزاران گەشتیار ڕادەکێشن، چونکە دیمەنە
+                        سەوزەکان و شوێنەکانی پشوودان
+                        هەستێکی تایبەتیان هەیە.
+                    </p>
+                </div>
+
+                <div class="about-layout">
+                    <article class="glass-card reveal">
+                        <h3 data-i18n="aboutCardNatureTitle">سروشت و ئارامی</h3>
+                        <p data-i18n="aboutCardNatureText">
+                            نەوڕۆڵی ناوچەیەکی گەشتیاری سروشتییە و بە ڕووبار، سەکوو و شوێنەکانی دانیشتن، خانووی سەر ئاو و
+                            هەوای ئارامەکەی ناسراوە.
+                            ئەو جێگایە بۆ خێزان، هاوڕێیان، و هەر کەسێک کە بەدوای ئارامی و دیمەنی جوان دەگەڕێت گونجاوە.
+                        </p>
+                    </article>
+
+                    <article class="glass-card reveal">
+                        <h3 data-i18n="aboutCardRiverTitle">ڕووبار و ژیان لە دەوری ئاو</h3>
+                        <p data-i18n="aboutCardRiverText">
+                            ڕوانگەی ڕووبار و هێمنیی ناوچەکە هەستێکی پشوودان دروست دەکات. لە هەمان کاتدا، بەلەم، جێتسکی و
+                            شوێنەکانی خواردن
+                            دەکرێن ببن بە بەشێکی تەواوکاری سەردانێکی خۆش.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            ئەم بەشە گرنگترین بەشی وێبسایتەکەیە چونکە خزمەتگوزارییەکانی ناوچەکە بە شێوەی کارت نیشان دەدات.
+            بوونی بۆ ئەوەی گەشتیار بتوانێت بە خێرایی جۆری خزمەتگوزاری، نرخ، و ژمارەی پەیوەندی ببینێت و لە WhatsApp ـەوە داوا بکات.
+            لە داهاتوودا دەتوانرێت ئەم container ـە لە API، dashboard، یان database ـەوە داتا وەربگرێت بەبێ گۆڕینی بنەمای دیزاین.
+        -->
+        <section class="section section-accent" id="services" aria-labelledby="services-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label" data-i18n="servicesLabel">خزمەتگوزارییەکان</span>
+                    <h2 id="services-title" data-i18n="servicesTitle">هەموو شتێک بۆ گەشتێکی خۆش لە نەوڕۆڵی</h2>
+                    <p data-i18n="servicesText">
+                        کارتەکانی خوارەوە بە JavaScript و لەسەر بنەمای داتای `data.js` دروست دەبن، بۆیە دواتر زیادکردن،
+                        گۆڕین یان ژمارەی زۆرتری خزمەتگوزاری
+                        زۆر ئاسان دەبێت.
+                    </p>
+                </div>
+
+                <div class="services-grid" id="servicesGrid" aria-live="polite"></div>
+
+                <noscript>
+                    <p class="noscript-note" data-i18n="servicesNoScript">بۆ بینینی خزمەتگوزارییە داینامیکییەکان، پێویستە JavaScript چالاک بێت.</p>
+                </noscript>
+            </div>
+        </section>
+
+        <!--
+            ئەم بەشە هۆکارە سەرەکییەکانی سەردانی نەوڕۆڵی دەخاتەڕوو.
+            بوونی گرنگە چونکە بە شێوەی خێرا و کورت، بە میوان دەڵێت بۆچی ئەم شوێنە جیاواز و گرنگە.
+            لە داهاتوودا دەتوانرێت ژمارە، ڕێتینگ، تێبینیی گەشتیاران یان icon ـی زیاتر تێدا زیاد بکرێت.
+        -->
+        <section class="section" id="why-visit" aria-labelledby="why-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label" data-i18n="whyLabel">بۆچی نەوڕۆڵی</span>
+                    <h2 id="why-title" data-i18n="whyTitle">هۆکارەکان بۆ گەشتکردن بۆ ئەم ناوچەیە</h2>
+                </div>
+
+                <div class="reasons-grid">
+                    <article class="reason-card reveal">
+                        <span class="reason-icon" aria-hidden="true">🌿</span>
+                        <h3 data-i18n="whyNatureTitle">سروشتی جوان</h3>
+                        <p data-i18n="whyNatureText">شاخ، سەوزایی و ڕوانگەی ئاو لە شوێنێکی یەکجا و هەستبەخش.</p>
+                    </article>
+
+                    <article class="reason-card reveal">
+                        <span class="reason-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
+                        <h3 data-i18n="whyFamilyTitle">گونجاو بۆ خێزان</h3>
+                        <p data-i18n="whyFamilyText">شوێنی دانیشتن، پیکنیک و کەشێکی ئارام بۆ هەموو تەمەنەکان.</p>
+                    </article>
+
+                    <article class="reason-card reveal">
+                        <span class="reason-icon" aria-hidden="true">🚤</span>
+                        <h3 data-i18n="whyRiverTitle">چالاکییەکانی ڕووبار</h3>
+                        <p data-i18n="whyRiverText">بەلەم، جێتسکی و کاتی خۆش لەسەر ئاو بۆ ئەوانەی حەزی لە جووڵەیە.</p>
+                    </article>
+
+                    <article class="reason-card reveal">
+                        <span class="reason-icon" aria-hidden="true">🤍</span>
+                        <h3 data-i18n="whyCalmTitle">ژینگەی ئارام</h3>
+                        <p data-i18n="whyCalmText">شوێنێک بۆ مانەوە، وێنەگرتن و دوورکەوتنەوەی کاتی لە شلوغی شار.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            ئەم بەشە گەلەری وێنەکان نیشان دەدات بۆ ئەوەی گەشتیار پێش سەردان، دیمەنی شوێنەکە ببینێت.
+            هۆکاری بوونی lazy loading ئەوەیە کە وێنەکان تەنها کاتێک دابەزێن کە نزیک بن لە شوێنی بینین، بۆیە خێرایی وێبەکە باشتر دەبێت.
+            لە داهاتوودا دەتوانرێت فلتەر بۆ وێنەکان، album ـی جیاواز، یان وێنەی زیاتر لە dashboard ـەوە زیاد بکرێت.
+        -->
+        <section class="section section-accent" id="gallery" aria-labelledby="gallery-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label" data-i18n="galleryLabel">گەلەری</span>
+                    <h2 id="gallery-title" data-i18n="galleryTitle">چەند دیمەنێک لە جوانی نەوڕۆڵی</h2>
+                    <p data-i18n="galleryText">کرتە لەسەر هەر وێنەیەک بکە بۆ بینین بە قەبارەی گەورەتر.</p>
+                </div>
+
+                <!--
+                    ئەم وێنانە وێنەی ڕاستەقینەی گەشتیاریی نەوڕۆڵین.
+                    بەکارهێنانی وێنەی ڕاستەقینە وێبسایتەکە باوەڕپێکراوتر و سەرنجڕاکێشتر دەکات.
+                    وێنەکان هێشتا بە lazy loading هەڵگیراون بۆ ئەوەی وێبەکە خەفیف و خێرا بمێنێتەوە.
+                -->
+                <div class="gallery-grid">
+                    <button class="gallery-card reveal" type="button" data-full-image="images/hero.jpg"
+                        data-title="دیمەنی سەرەکیی نەوڕۆڵی" data-i18n-data-title="galleryHeroTitle">
+                        <img class="lazy-image"
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23dbece8'/%3E%3C/svg%3E"
+                            data-src="images/hero.jpg" alt="دیمەنی سەرەکیی نەوڕۆڵی" data-i18n-alt="galleryHeroTitle" loading="lazy" width="1280"
+                            height="720">
+                        <span data-i18n="galleryHeroTitle">دیمەنی سەرەکیی نەوڕۆڵی</span>
+                    </button>
+
+                    <button class="gallery-card reveal" type="button" data-full-image="images/nature.jpg"
+                        data-title="شاخ و ئاو و سروشتی ئارام" data-i18n-data-title="galleryNatureTitle">
+                        <img class="lazy-image"
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23dbece8'/%3E%3C/svg%3E"
+                            data-src="images/nature.jpg" alt="شاخ و ئاو و سروشتی ئارام" data-i18n-alt="galleryNatureTitle" loading="lazy" width="1284"
+                            height="852">
+                        <span data-i18n="galleryNatureTitle">شاخ و ئاو و سروشتی ئارام</span>
+                    </button>
+
+                    <button class="gallery-card reveal" type="button" data-full-image="images/landscape.jpg"
+                        data-title="سەوزایی و ڕێگاکانی ناوچەکە" data-i18n-data-title="galleryLandscapeTitle">
+                        <img class="lazy-image"
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23dbece8'/%3E%3C/svg%3E"
+                            data-src="images/landscape.jpg" alt="سەوزایی و ڕێگاکانی ناوچەکە" data-i18n-alt="galleryLandscapeTitle" loading="lazy" width="1920"
+                            height="1280">
+                        <span data-i18n="galleryLandscapeTitle">سەوزایی و ڕێگاکانی ناوچەکە</span>
+                    </button>
+
+                    <button class="gallery-card reveal" type="button" data-full-image="images/activity.jpg"
+                        data-title="کۆبوونەوەی خێزان و گەشتیاران" data-i18n-data-title="galleryActivityTitle">
+                        <img class="lazy-image"
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23dbece8'/%3E%3C/svg%3E"
+                            data-src="images/activity.jpg" alt="کۆبوونەوەی خێزان و گەشتیاران" data-i18n-alt="galleryActivityTitle" loading="lazy"
+                            width="1914" height="1076">
+                        <span data-i18n="galleryActivityTitle">کۆبوونەوەی خێزان و گەشتیاران</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            ئەم بەشە شوێنی نەوڕۆڵی لەسەر نەخشە نیشان دەدات بۆ ئەوەی میوانەکان بتوانن بە ئاسانی ڕێگای گەیشتن بدۆزنەوە.
+            بوونی بەشی map گرنگە چونکە زۆرێک لە بەکارهێنەران پێش چوون دەیانەوێت شوێنەکە لە Google Maps ببینن.
+            لە داهاتوودا دەتوانرێت pins ـی چالاک، ڕێنمایی هاتوچۆ، یان نیشاندانی شوێنی هەر خزمەتگوزارییەک بە جیاواز زیاد بکرێت.
+        -->
+        <section class="section" id="map" aria-labelledby="map-title">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label" data-i18n="mapLabel">نەخشە</span>
+                    <h2 id="map-title" data-i18n="mapTitle">شوێنی نەوڕۆڵی لەسەر نەخشە</h2>
+                    <p data-i18n="mapText">ئەم iframe ـە وەک شوێن-دانەرێکی سەرەتایی بەکارهاتووە و دەتوانرێت دواتر بە لینک یان embed ـی وردتر
+                        بگۆڕدرێت.</p>
+                </div>
+
+                <div class="map-shell reveal">
+                    <!-- لێرە شوێنی نەوڕۆڵی لە Google Maps نیشان دەدرێت -->
+                    <iframe title="شوێنی نەوڕۆڵی لەسەر Google Maps" data-i18n-title-attr="mapIframeTitle"
+                        src="https://www.google.com/maps?q=Halabja%20Nawroli%20Kurdistan%20Region%20Iraq&output=embed"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            ئەم بەشە هەموو ڕێگاکانی پەیوەندی پێکەوە دەخات بۆ ئەوەی گەشتیار بە خێرایی پەیوەندی بکات.
+            بوونی ئەم بەشە گرنگە چونکە زۆربەی داواکارییەکان بۆ زانیاری، رزێرڤ، یان پرسیار لە ڕێگەی موبایل و WhatsApp ئەنجام دەدرێن.
+            لە داهاتوودا دەتوانرێت فورمی پەیوەندی، Instagram feed، و لینکەکانی social media ی ڕاستەقینە زیاد بکرێن.
+        -->
+        <section class="section section-accent" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="contact-shell">
+                    <div class="section-heading reveal">
+                        <span class="section-label" data-i18n="contactLabel">پەیوەندی</span>
+                        <h2 id="contact-title" data-i18n="contactTitle">ئامادەین بۆ وەڵامدانەوەی پرسیارەکانت</h2>
+                        <p data-i18n="contactText">ئەگەر دەتەوێت زانیاری زیاتر وەربگریت یان پێشتر داوا بۆ شوێن و خزمەتگوزارییەکان بکەیت، ئەمانە
+                            ڕێگاکانی پەیوەندین.</p>
+                    </div>
+
+                    <div class="contact-grid">
+                        <article class="contact-card reveal">
+                            <h3 data-i18n="contactPhoneTitle">تەلەفۆن</h3>
+                            <a href="tel:+9647500000000">0750xxxxxxx</a>
+                            <p data-i18n="contactPhoneText">ژمارەیەکی جێگرەوەیە و دەتوانرێت لە داهاتوودا بە ژمارەی ڕاستەقینە بگۆڕدرێت.</p>
+                        </article>
+
+                        <article class="contact-card reveal">
+                            <h3 data-i18n="contactWhatsappTitle">WhatsApp</h3>
+                            <a class="button button-primary full-width"
+                                href="https://wa.me/9647500000000?text=%D8%B3%DA%B5%D8%A7%D9%88%D8%8C%20%D8%AF%DB%95%D9%85%DB%95%D9%88%DB%8E%D8%AA%20%D8%B2%D8%A7%D9%86%DB%8C%D8%A7%D8%B1%DB%8C%20%D8%B2%DB%8C%D8%A7%D8%AA%D8%B1%20%D8%AF%DB%95%D8%B1%D8%A8%D8%A7%D8%B1%DB%95%DB%8C%20%D9%86%DB%95%D9%88%DA%95%DB%86%DA%B5%DB%8C%20%D9%88%D9%87%D9%8E%D8%B1%D8%A8%DA%AF%D8%B1%D9%85."
+                                target="_blank" rel="noopener" data-i18n="contactWhatsappButton">پەیوەندی لە WhatsApp</a>
+                            <p data-i18n="contactWhatsappText">ئەم دوگمەیە ڕێگایەکی خێرا و ئاسانە بۆ داواکردنی زانیاری و رزێرڤی سەرەتایی.</p>
+                        </article>
+
+                        <article class="contact-card reveal">
+                            <h3 data-i18n="contactSocialTitle">Social Media</h3>
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook placeholder" data-i18n="socialFacebook">Facebook</a>
+                                <a href="#" aria-label="Instagram placeholder" data-i18n="socialInstagram">Instagram</a>
+                                <a href="#" aria-label="TikTok placeholder" data-i18n="socialTikTok">TikTok</a>
+                            </div>
+                            <p data-i18n="contactSocialText">ئەم لینکەکان placeholder ـن و دواتر دەتوانرێت بە هەژمارە ڕاستەقینەکانی brand ـەکە پڕ
+                                بکرێنەوە.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--
+        ئەم modal ـە بۆ گەورەکردنەوەی وێنەکانی gallery بەکاردێت.
+        هۆکاری بوونی ئەوەیە کە بەبێ پەڕەی نوێ، بەکارهێنەر بتوانێت وێنەکە بە تەواوی ببینێت.
+        لە داهاتوودا دەتوانرێت slideshow، caption ـی درێژ، و download/share options بۆی زیاد بکرێت.
+    -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="lightboxTitle">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="داخستنی وێنە" data-i18n-aria-label="lightboxCloseLabel">×</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <p id="lightboxTitle"></p>
+        </div>
+    </div>
+
+    <!--
+        ئەم footer ـە کۆتایی پەڕەکەیە و ناسنامەیەکی کورت و مافی بڵاوکردنەوە دەخاتەڕوو.
+        لە داهاتوودا دەتوانرێت لینک بۆ یاسای تایبەتمەندی، هەواڵنامە، یان partner logos بۆی زیاد بکرێت.
+    -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-meta">
+                <p>Visit Nawroli © <span id="currentYear"></span></p>
+
+                <!--
+                    ئەم بەشە پیشاندەری ئەو کەسەیە کە وێبسایتەکەی دروست کردووە.
+                    بوونی ئەم credit ـە متمانە دروست دەکات و وا دەکات میوانەکان بزانن پرۆژەکە بە شێوەی پڕۆفیشناڵ ئامادە کراوە.
+                    لە داهاتوودا دەتوانرێت لینک بۆ portfolio، email ی دروستکەر، یان لیستی هاوبەشانی پرۆژەکەی بۆ زیاد بکرێت.
+                -->
+                <!--
+                    ئەم بەشە پیشاندەری ئەوەیە کێ ئەم وێبسایتەی دروست کردووە.
+                    لینکی پڕۆفایل ڕێگەیەک دەدات سەردانکەران کارەکانی گەشەپێدەرەکە ببینن.
+                    ئەمە یارمەتی دەدات پڕۆژەکە باوەڕپێکراوتر و پیشەییتر دیار بێت.
+                -->
+                <div class="footer-credit" aria-label="زانیاریی دروستکەری وێبسایت">
+                    <strong class="credit-title">
+                        <span>دروستکراوە لەلایەن</span>
+                        <a class="credit-name" href="https://mhamadrebae-pixel.github.io/my-profile/" target="_blank"
+                            rel="noopener noreferrer" lang="en" dir="ltr">Mhamad Rebar</a>
+                    </strong>
+                    <small lang="en" dir="ltr">Designed &amp; Developed by Mhamad Rebar</small>
+                </div>
+            </div>
+
+            <!--
+                ئەم badge ـە وەک ناسنامەیەکی بچووک بۆ دروستکەری وێبسایت بەکاردێت.
+                هۆکاری بوونی ئەوەیە کە بە شێوەی ناسک و مۆدێرن ناوی دروستکەر نیشان بدات و هەستی متمانە و خاوەنداری زیاد بکات.
+                لە داهاتوودا دەتوانرێت ئەم badge ـە clickable بکرێت بۆ portfolio ی دروستکەر یان social link.
+            -->
+            <div class="footer-actions">
+                <span class="creator-badge" lang="en" dir="ltr">Website by Mhamad Rebar</span>
+                <a class="footer-back-link" href="#top" data-scroll-target data-i18n="footerBackTop">گەڕانەوە بۆ سەرەوە</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>

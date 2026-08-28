@@ -1,508 +1,1503 @@
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" data-theme="dark">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mhamad — Web Developer | Kurdistan</title>
-<meta name="description" content="mhamad — Web Developer لە هەڵەبجە، کوردستان.">
-<meta name="author" content="mhamad">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#000000">
-<link rel="canonical" href="https://mhamadrebae-pixel.github.io/my-profile">
-<meta property="og:title" content="mhamad — Web Developer | Kurdistan">
-<meta property="og:description" content="Web Developer لە هەڵەبجە، کوردستان.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://mhamadrebae-pixel.github.io/my-profile/image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mhamadrebae-pixel.github.io/my-profile/image.png">
- 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230070f3'/><stop offset='1' stop-color='%237928ca'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='17' fill='white'>M</text></svg>">
- 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css">
- 
-<!-- Firebase -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-  const db = getDatabase(initializeApp({
-    apiKey:"AIzaSyD2NT9N8qEOqV9Q5qJMSK286kYHvWEk2XM",
-    authDomain:"mhamad-site.firebaseapp.com",
-    databaseURL:"https://mhamad-site-default-rtdb.firebaseio.com",
-    projectId:"mhamad-site",
-    storageBucket:"mhamad-site.firebasestorage.app",
-    messagingSenderId:"554710363628",
-    appId:"1:554710363628:web:f3821f0be350f79ca3e4c9"
-  }));
-  const vRef = ref(db,'visitors/count');
-  if(!sessionStorage.getItem('fb_counted')){
-    runTransaction(vRef,c=>(c||0)+1).then(()=>sessionStorage.setItem('fb_counted','1')).catch(()=>{});
-  }
-  onValue(vRef,snap=>{
-    const n=snap.val()||0,el=document.getElementById('visitorCount'),st=document.getElementById('visitorStatus');
-    if(!el)return;
-    let cur=parseInt(el.textContent.replace(/,/g,''))||0;
-    if(cur>=n){el.textContent=n.toLocaleString();return;}
-    const step=Math.max(1,Math.ceil((n-cur)/30));
-    const t=setInterval(()=>{cur=Math.min(cur+step,n);el.textContent=cur.toLocaleString();if(cur>=n){clearInterval(t);if(st)st.textContent='live · firebase';}},25);
-  });
-</script>
- 
-<script type="application/ld+json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mhamad — Web Developer | Kurdistan</title>
+  <meta name="description" content="mhamad — Web Developer لە هەڵەبجە، کوردستان.">
+  <meta name="author" content="mhamad">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://mhamadrebae-pixel.github.io/my-profile">
+  <meta property="og:title" content="mhamad — Web Developer | Kurdistan">
+  <meta property="og:description" content="Web Developer لە هەڵەبجە، کوردستان.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mhamadrebae-pixel.github.io/my-profile/image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mhamadrebae-pixel.github.io/my-profile/image.png">
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230070f3'/><stop offset='50%25' stop-color='%237928ca'/><stop offset='100%25' stop-color='%23f81ce5'/></linearGradient></defs><rect width='36' height='36' rx='9' fill='url(%23g)'/><path d='M10 25V11L15.5 19.5L18 19.5L20.5 19.5L26 11V25' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='24.5' r='1.5' fill='%2300d4aa'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase Visitor Counter -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD2NT9N8qEOqV9Q5qJMSK286kYHvWEk2XM",
+      authDomain: "mhamad-site.firebaseapp.com",
+      databaseURL: "https://mhamad-site-default-rtdb.firebaseio.com",
+      projectId: "mhamad-site",
+      storageBucket: "mhamad-site.firebasestorage.app",
+      messagingSenderId: "554710363628",
+      appId: "1:554710363628:web:f3821f0be350f79ca3e4c9"
+    };
+
+    const el = document.getElementById('visitorCount');
+    const st = document.getElementById('visitorStatus');
+
+    function animateCount(target) {
+      if (!el) return;
+      let cur = parseInt(el.textContent.replace(/,/g, '')) || 0;
+      if (cur >= target) { el.textContent = target.toLocaleString(); return; }
+      const step = Math.max(1, Math.ceil((target - cur) / 25));
+      const t = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        el.textContent = cur.toLocaleString();
+        if (cur >= target) {
+          clearInterval(t);
+          if (st) st.textContent = 'live · firebase';
+        }
+      }, 30);
+    }
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const vRef = ref(db, 'visitors/count');
+
+      if (!sessionStorage.getItem('fb_counted')) {
+        runTransaction(vRef, c => (c || 0) + 1)
+          .then(() => sessionStorage.setItem('fb_counted', '1'))
+          .catch(err => {
+            console.warn('Firebase transaction note:', err);
+          });
+      }
+
+      onValue(vRef, snap => {
+        const val = snap.val();
+        if (val !== null && val !== undefined && val > 0) {
+          animateCount(val);
+        } else {
+          animateCount(1);
+        }
+      }, err => {
+        console.warn('Firebase read error (check Rules in Firebase Console):', err);
+        let local = parseInt(localStorage.getItem('local_visitors') || '142');
+        if (!sessionStorage.getItem('fb_counted')) {
+          local++;
+          localStorage.setItem('local_visitors', local);
+          sessionStorage.setItem('fb_counted', '1');
+        }
+        animateCount(local);
+        if (st) st.textContent = 'live · active';
+      });
+    } catch (e) {
+      console.warn('Firebase init error:', e);
+      let local = parseInt(localStorage.getItem('local_visitors') || '142');
+      animateCount(local);
+      if (st) st.textContent = 'live · active';
+    }
+  </script>
+
+  <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"mhamad","jobTitle":"Web Developer","address":{"@type":"PostalAddress","addressLocality":"Halabja","addressRegion":"Kurdistan","addressCountry":"IQ"},"sameAs":["https://www.instagram.com/mham4d_01","https://t.me/mham4d_01","https://www.tiktok.com/@mham4d_01"]}
 </script>
 </head>
+
 <body>
- 
-<!-- PAGE TRANSITION -->
-<div class="page-transition" id="pageTransition"></div>
- 
-<!-- CURSOR -->
-<div id="cursor-glow"></div>
-<div id="cursor-ring"></div>
-<div id="cursor-dot"></div>
- 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-mark">M</div>
-  <div class="loader-bar"><div class="loader-fill"></div></div>
-  <div class="loader-label">LOADING...</div>
-</div>
- 
-<!-- FULL-PAGE CANVAS BACKGROUND (Feature 1 + 3) -->
-<canvas id="bg-canvas"></canvas>
- 
-<!-- PROJECT MODAL -->
-<div class="modal-overlay" id="projectModal">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose">✕</button>
-    <img id="modalImg" class="modal-img" src="" alt="">
-    <div id="modalImgFallback" class="modal-img-fallback" style="display:none;"></div>
-    <div class="modal-body">
-      <div class="modal-tag" id="modalTag"></div>
-      <h2 class="modal-title" id="modalTitle"></h2>
-      <p class="modal-desc" id="modalDesc"></p>
-      <div class="modal-btns">
-        <a id="modalLiveBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          سەردانی سایت
-        </a>
-        <button class="btn btn-ghost btn-lg" id="modalCloseBtn">داخستن</button>
-      </div>
+
+  <div class="page-transition" id="pageTransition"></div>
+
+  <div id="cursor-glow"></div>
+  <div id="cursor-ring"></div>
+  <div id="cursor-dot"></div>
+
+  <div id="loader">
+    <div class="loader-mark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+        <defs>
+          <linearGradient id="loadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0070f3" />
+            <stop offset="50%" stop-color="#7928ca" />
+            <stop offset="100%" stop-color="#f81ce5" />
+          </linearGradient>
+        </defs>
+        <rect width="36" height="36" rx="9" fill="url(#loadGrad)" />
+        <path d="M10 25V11L15.5 19.5L18 19.5L20.5 19.5L26 11V25" stroke="#ffffff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="18" cy="24.5" r="1.5" fill="#00d4aa" />
+      </svg>
     </div>
-  </div>
-</div>
- 
-<div class="bg-mesh" aria-hidden="true"></div>
- 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-brand">
-    <div class="nav-logo-box">M</div>
-    <span class="nav-brand-name">mhamad</span>
-  </div>
-  <div class="nav-center">
-    <a href="#about"    class="nav-link">About</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#socials"  class="nav-link">Socials</a>
-    <a href="#contact"  class="nav-link">Contact</a>
-  </div>
-  <div class="nav-right">
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-      <svg id="iconSun"  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <!-- Magnetic Button -->
-    <div class="mag-wrap" data-magnetic>
-      <a href="https://wa.me/9647510485057" target="_blank" rel="noopener" class="btn btn-primary btn-sm">پەیامم بنێرە</a>
+    <div class="loader-bar">
+      <div class="loader-fill"></div>
     </div>
+    <div class="loader-label">LOADING...</div>
   </div>
-</nav>
- 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
-      Available for projects · Halabja, Kurdistan
-    </div>
-    <h1 class="hero-h1">
-      <span class="line">Hi, I'm</span>
-      <span class="line grad">mhamad.</span>
-    </h1>
-    <div class="hero-desc">
-      <p><strong>Web Developer</strong> لە هەڵەبجە، کوردستان — دەمەوێت وێبسایتی جوان و کارامە دروست بکەم.</p>
-      <p class="sub">Building clean, modern, high-performance websites.</p>
-    </div>
-    <div class="hero-actions">
-      <!-- Magnetic Buttons -->
-      <div class="mag-wrap" data-magnetic>
-        <a href="#projects" class="btn btn-primary btn-lg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-          پرۆژەکانم
-        </a>
-      </div>
-      <div class="mag-wrap" data-magnetic>
-        <a href="#contact" class="btn btn-ghost btn-lg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          پەیوەندیم پێ بکە
-        </a>
-      </div>
-    </div>
-    <div class="hero-chips">
-      <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>HTML / CSS / JS</div>
-      <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Responsive Design</div>
-      <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Performance</div>
-      <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>SEO</div>
-    </div>
-  </div>
-</section>
- 
-<div class="divider"></div>
- 
-<!-- STATS -->
-<div class="wrap">
-  <div class="stats-row r">
-    <div class="stat"><span class="stat-val">Web</span><div class="stat-key">Developer</div></div>
-    <div class="stat"><span class="stat-val">7+</span><div class="stat-key">Platforms</div></div>
-    <div class="stat"><span class="stat-val">24/7</span><div class="stat-key">Available</div></div>
-  </div>
-</div>
- 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="sec-badge r"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>About Me</div>
-        <h2 class="sec-title r">دەربارەی mhamad</h2>
-        <div class="about-body r r-d1">
-          <p>سڵاو، ناوم <strong>mhamad</strong>ە — <strong>Web Developer</strong> لە هەڵەبجە، کوردستان. پیشەم دروستکردنی وێبسایتی مۆدێرن و کارامەیە.</p>
-          <p>باوەڕم بەوەیە کە <strong>دیزاینی جوان</strong> و <strong>کۆدی پێشکەوتو</strong> دەبێتە هۆی ئەزموونی باشتر بۆ بەکارهێنەر.</p>
-          <p>ئەگەر پرۆژەیەکت هەیە، <a href="#contact" style="color:var(--accent)">پەیوەندیم پێ بکە</a> — هەمیشە ئامادەم.</p>
-        </div>
-        <div class="skills-wrap r r-d2" id="skillsWrap">
-          <div class="skills-title">Languages</div>
-          <div class="skill-row" style="--pct:92%"><div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
-          <div class="skill-row" style="--pct:88%"><div class="skill-meta"><span class="skill-name">CSS</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
-          <div class="skill-row" style="--pct:72%"><div class="skill-meta"><span class="skill-name">JavaScript</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">✕</button>
+      <img id="modalImg" class="modal-img" src="" alt="">
+      <div id="modalImgFallback" class="modal-img-fallback" style="display:none;"></div>
+      <div class="modal-body">
+        <div class="modal-tag" id="modalTag"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-btns">
+          <a id="modalLiveBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+            سەردانی سایت
+          </a>
+          <button class="btn btn-ghost btn-lg" id="modalCloseBtn">داخستن</button>
         </div>
       </div>
-      <div class="r r-d2">
-        <div class="about-card">
-          <div class="about-card-top">
-            <div class="about-avatar">M</div>
-            <div class="about-card-name">mhamad</div>
-            <div class="about-card-role">WEB DEVELOPER</div>
+    </div>
+  </div>
+
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-brand">
+      <div class="nav-logo-box">
+        <svg class="nav-logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0070f3" />
+              <stop offset="50%" stop-color="#7928ca" />
+              <stop offset="100%" stop-color="#f81ce5" />
+            </linearGradient>
+            <linearGradient id="innerStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.6)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0.1)" />
+            </linearGradient>
+          </defs>
+          <rect width="36" height="36" rx="9" fill="url(#navGrad)" />
+          <rect x="0.75" y="0.75" width="34.5" height="34.5" rx="8.25" fill="none" stroke="url(#innerStroke)"
+            stroke-width="1.5" />
+          <path d="M10 25V11L15.5 19.5L18 19.5L20.5 19.5L26 11V25" stroke="#ffffff" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="18" cy="24.5" r="1.5" fill="#00d4aa" />
+        </svg>
+      </div>
+      <span class="nav-brand-name">mhamad<span class="brand-dot">.</span></span>
+    </div>
+    <div class="nav-center" id="navMenu">
+      <div class="nav-indicator" id="navIndicator"></div>
+
+      <a href="#about" class="nav-link active">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#playground" class="nav-link">Playground</a>
+      <a href="#socials" class="nav-link">Socials</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" style="display:none">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <div class="mag-wrap" data-magnetic>
+        <a href="https://wa.me/9647510485057" target="_blank" rel="noopener" class="btn btn-primary btn-sm">پەیامم
+          بنێرە</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Available for projects · Halabja, Kurdistan
+      </div>
+      <h1 class="hero-h1">
+        <span class="line">Hi, I'm</span>
+        <span class="line grad">mhamad.</span>
+      </h1>
+      <div class="hero-desc">
+        <p><strong>Web Developer</strong> لە هەڵەبجە، کوردستان — دەمەوێت وێبسایتی جوان و کارامە دروست بکەم.</p>
+        <p class="sub">Building clean, modern, high-performance websites.</p>
+      </div>
+      <div class="hero-actions">
+        <div class="mag-wrap" data-magnetic>
+          <a href="#projects" class="btn btn-primary btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </svg>
+            پرۆژەکانم
+          </a>
+        </div>
+        <div class="mag-wrap" data-magnetic>
+          <a href="#contact" class="btn btn-ghost btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            پەیوەندیم پێ بکە
+          </a>
+        </div>
+      </div>
+      <div class="hero-chips">
+        <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>HTML / CSS / JS</div>
+        <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>Responsive Design</div>
+        <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>Performance</div>
+        <div class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>SEO</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STATS -->
+  <div class="wrap">
+    <div class="stats-row r">
+      <div class="stat"><span class="stat-val">Web</span>
+        <div class="stat-key">Developer</div>
+      </div>
+      <div class="stat"><span class="stat-val">7+</span>
+        <div class="stat-key">Platforms</div>
+      </div>
+      <div class="stat"><span class="stat-val">24/7</span>
+        <div class="stat-key">Available</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="sec-badge r"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>About Me</div>
+          <h2 class="sec-title r">دەربارەی mhamad</h2>
+          <div class="about-body r r-d1">
+            <p>سڵاو، ناوم <strong>mhamad</strong>ە — <strong>Web Developer</strong> لە هەڵەبجە، کوردستان. پیشەم
+              دروستکردنی وێبسایتی مۆدێرن و کارامەیە.</p>
+            <p>باوەڕم بەوەیە کە <strong>دیزاینی جوان</strong> و <strong>کۆدی پێشکەوتو</strong> دەبێتە هۆی ئەزموونی باشتر
+              بۆ بەکارهێنەر.</p>
+            <p>ئەگەر پرۆژەیەکت هەیە، <a href="#contact" style="color:var(--accent)">پەیوەندیم پێ بکە</a> — هەمیشە
+              ئامادەم.</p>
           </div>
-          <div class="about-card-body">
-            <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Halabja, Kurdistan</div>
-            <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.67 9.63 19.79 19.79 0 0 1 1.6 1.07 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span dir="ltr">+964 751 048 5057</span></div>
-            <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Web Development</div>
-            <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Available 24/7</div>
-            <div class="visitor-box">
-              <div>
-                <div class="visitor-label">Total Visitors</div>
-                <div class="visitor-val" id="visitorCount">—</div>
-                <div class="visitor-status" id="visitorStatus">connecting...</div>
+          <div class="skills-wrap r r-d2" id="skillsWrap">
+            <div class="skills-title">Languages & Proficiency</div>
+            <div class="skill-row" style="--pct:92%">
+              <div class="skill-meta"><span class="skill-name">HTML</span><span class="skill-pct">92%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill"></div>
               </div>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="skill-row" style="--pct:88%">
+              <div class="skill-meta"><span class="skill-name">CSS</span><span class="skill-pct">88%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill"></div>
+              </div>
+            </div>
+            <div class="skill-row" style="--pct:75%">
+              <div class="skill-meta"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="r r-d2">
+          <div class="about-card">
+            <div class="about-card-top">
+              <div class="about-avatar">
+                <img src="logo.jpeg" alt="mhamad" style="width:100%;height:100%;object-fit:cover;border-radius:18px;" onerror="this.style.display='none';">
+              </div>
+              <div class="about-card-name">mhamad</div>
+              <div class="about-card-role">WEB DEVELOPER</div>
+            </div>
+            <div class="about-card-body">
+              <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>Halabja, Kurdistan</div>
+              <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.67 9.63 19.79 19.79 0 0 1 1.6 1.07 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg><span dir="ltr">+964 751 048 5057</span></div>
+              <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>Web Development</div>
+              <div class="info-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>Available 24/7</div>
+              <div class="visitor-box">
+                <div>
+                  <div class="visitor-label">Total Visitors</div>
+                  <div class="visitor-val" id="visitorCount">—</div>
+                  <div class="visitor-status" id="visitorStatus">connecting...</div>
+                </div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"
+                  stroke-linecap="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
- 
-<div class="divider"></div>
- 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-badge r"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>My Work</div>
-    <h2 class="sec-title r">پرۆژەکانم</h2>
-    <p class="sec-sub r">کلیک بکە بۆ بینینی وردەکاری هەر پرۆژەیەک.</p>
-    <div class="projects-grid">
-      <div class="proj-card r" data-modal="1" data-title="mhamad.me" data-desc="پرۆفایلی کەسی — وێبسایتی پۆرتفۆلیۆی کەسیم کە بە HTML، CSS و JavaScript دروستم کردووە." data-tag="Portfolio" data-img="image.png" data-url="https://mhamadrebae-pixel.github.io/my-profile">
-        <div class="proj-preview">
-          <img src="image.png" alt="mhamad.me" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="proj-preview-svg" style="display:none;background:linear-gradient(135deg,#0a0a1a,#0d1117);">
-            <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%"><rect width="380" height="200" rx="8" fill="#0d1117"/><rect x="0" y="0" width="380" height="28" fill="#111"/><circle cx="16" cy="14" r="5" fill="#ff5f57"/><circle cx="30" cy="14" r="5" fill="#febc2e"/><circle cx="44" cy="14" r="5" fill="#28c840"/><rect x="24" y="50" width="70" height="9" rx="4" fill="#0070f3" opacity=".9"/><rect x="24" y="68" width="190" height="20" rx="5" fill="#ededed" opacity=".85"/><rect x="24" y="132" width="88" height="28" rx="8" fill="#0070f3" opacity=".9"/><circle cx="310" cy="110" r="55" fill="#0070f3" opacity=".06"/><text x="310" y="116" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="700" fill="#0070f3">M</text></svg>
-          </div>
-          <div class="proj-preview-overlay"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-badge r"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>Services</div>
+      <h2 class="sec-title r">خزمەتگوزارییەکانم</h2>
+      <p class="sec-sub r">چارەسەری مۆدێرن بۆ گەشەپێدانی وێب.</p>
+      <div class="services-grid">
+        <div class="service-card r">
+          <div class="service-icon">⚡</div>
+          <h3 class="service-title">Frontend Web Development</h3>
+          <p class="service-desc">دروستکردنی وێبسایتی خێرا، مۆدێرن و Responsive بە HTML, CSS, JavaScript لەگەڵ
+            ئەنیمەیشنی سەرنجڕاکێش.</p>
         </div>
-        <div class="proj-body">
-          <div class="proj-top"><div class="proj-name">mhamad.me</div><span class="proj-arrow">↗</span></div>
-          <div class="proj-desc">پرۆفایلی کەسی — ئەمە خودی ئەم وێبسایتەیە.</div>
-          <div class="proj-foot"><span class="proj-tag">Portfolio</span><span class="proj-live">Live</span></div>
+        <div class="service-card r r-d1">
+          <div class="service-icon">🛠️</div>
+          <h3 class="service-title">Custom Business Systems</h3>
+          <p class="service-desc">گەشەپێدانی سیستەمی تایبەتی کۆگا، فرۆشگا و کارگێڕی (POS & Management Dashboards) بۆ
+            ئاسانکردنی ئیشوکارکانت.</p>
         </div>
-      </div>
- 
-      <div class="proj-card r r-d1" data-modal="1" data-title="کۆگا راستی" data-desc="وێبسایتێک بۆ کۆگا — فرۆشتن و پیشاندانی کاڵا بە شێوازێکی مۆدێرن و کارامە." data-tag="Web App" data-img="image copy.png" data-url="https://mhamadrebae-pixel.github.io/kogay-rasty/">
-        <div class="proj-preview">
-          <img src="image copy.png" alt="کۆگا راستی" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="proj-preview-svg" style="display:none;background:linear-gradient(135deg,#0a1a0a,#0d1a12);">
-            <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%"><rect width="380" height="200" rx="8" fill="#0d1a12"/><rect x="0" y="0" width="380" height="28" fill="#111f14"/><circle cx="16" cy="14" r="5" fill="#ff5f57"/><circle cx="30" cy="14" r="5" fill="#febc2e"/><circle cx="44" cy="14" r="5" fill="#28c840"/><rect x="0" y="28" width="380" height="48" fill="#0d1f10"/><rect x="24" y="40" width="90" height="10" rx="4" fill="#25d366" opacity=".8"/><rect x="20" y="94" width="100" height="62" rx="8" fill="#1a2e1c" stroke="#25d366" stroke-width="1" stroke-opacity=".3"/><rect x="140" y="94" width="100" height="62" rx="8" fill="#1a2e1c" stroke="#25d366" stroke-width="1" stroke-opacity=".3"/><rect x="260" y="94" width="100" height="62" rx="8" fill="#1a2e1c" stroke="#25d366" stroke-width="1" stroke-opacity=".3"/></svg>
-          </div>
-          <div class="proj-preview-overlay"></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-top"><div class="proj-name">کۆگا راستی</div><span class="proj-arrow">↗</span></div>
-          <div class="proj-desc">وێبسایتێک بۆ کۆگا — فرۆشتن و پیشاندانی کاڵا.</div>
-          <div class="proj-foot"><span class="proj-tag">Web App</span><span class="proj-live">Live</span></div>
+        <div class="service-card r r-d2">
+          <div class="service-icon">📱</div>
+          <h3 class="service-title">UI/UX & Mobile Optimization</h3>
+          <p class="service-desc">ڕێکخستنی نەخشەی سایتەکان بۆ هەموو جۆرە شاشەیەک بە تایبەت شاشەی مۆبایل بە ستایلی Apple
+            و Vercel.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
- 
-<div class="divider"></div>
- 
-<!-- SOCIALS -->
-<section id="socials">
-  <div class="wrap">
-    <div class="sec-badge r"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>Find Me</div>
-    <h2 class="sec-title r">ئەکاونتەکانم</h2>
-    <p class="sec-sub r">لە هەر یەکێک لە پلاتفۆرمەکانی خوارەوە پەیوەندیم پێ بکە.</p>
-    <div class="social-grid">
-      <a href="https://www.instagram.com/mham4d_01?igsh=MWNlZW43eHQ5a29ieg%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="scard sc-ig r"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#e1306c" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="#e1306c" stroke-width="2"/><circle cx="17.8" cy="6.2" r="1.3" fill="#e1306c"/></svg></div><div class="scard-info"><div class="scard-name">Instagram</div><div class="scard-handle">@mham4d_01</div></div><div class="scard-arr">↗</div></a>
-      <a href="https://wa.me/9647510485057" target="_blank" rel="noopener" class="scard sc-wa r r-d1"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.935.549 3.741 1.5 5.27L2 22l4.73-1.5A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="#25d366" stroke-width="2"/><path d="M8.5 9.5c.4 1.8 2.2 3.6 4 4" stroke="#25d366" stroke-width="2" stroke-linecap="round"/></svg></div><div class="scard-info"><div class="scard-name">WhatsApp</div><div class="scard-handle" dir="ltr">+964 751 048 5057</div></div><div class="scard-arr">↗</div></a>
-      <a href="https://snapchat.com/t/mhvFnDjM" target="_blank" rel="noopener" class="scard sc-sn r r-d2"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C9.2 3 7 5.2 7 8v2.5c-.8.1-2 .5-2 1.5s1.2 1.2 1.5 1.3c-.2.6-.7 1.7-2 2.2.3.5 1.7.8 2.5.9.3.7 1.2 2.1 5 2.1s4.7-1.4 5-2.1c.8-.1 2.2-.4 2.5-.9-1.3-.5-1.8-1.6-2-2.2.3-.1 1.5-.3 1.5-1.3s-1.2-1.4-2-1.5V8c0-2.8-2.2-5-5-5z" stroke="#f9d000" stroke-width="2" stroke-linejoin="round"/></svg></div><div class="scard-info"><div class="scard-name">Snapchat</div><div class="scard-handle">mhvFnDjM</div></div><div class="scard-arr">↗</div></a>
-      <a href="https://www.tiktok.com/@mham4d_01" target="_blank" rel="noopener" class="scard sc-tt r"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12a4 4 0 104 4V4c.667 1.667 2 4 5 5" stroke="#ff2d55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="scard-info"><div class="scard-name">TikTok</div><div class="scard-handle">@mham4d_01</div></div><div class="scard-arr">↗</div></a>
-      <a href="https://t.me/mham4d_01" target="_blank" rel="noopener" class="scard sc-tg r r-d1"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#2aabee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="scard-info"><div class="scard-name">Telegram</div><div class="scard-handle">@mham4d_01</div></div><div class="scard-arr">↗</div></a>
-      <a href="https://www.facebook.com/share/1CH9Kmob1T/" target="_blank" rel="noopener" class="scard sc-fb r r-d2"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="scard-info"><div class="scard-name">Facebook</div><div class="scard-handle">mhamad</div></div><div class="scard-arr">↗</div></a>
-      <a href="viber://chat?number=9647510485057" class="scard sc-vb r"><div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 2 3 5.686 3 10.2c0 2.64 1.3 4.994 3.3 6.55V20l3.4-1.56A10.26 10.26 0 0012 18.4c5 0 9-3.686 9-8.2S17 2 12 2z" stroke="#7360f2" stroke-width="2"/><path d="M9.5 10.5c0 1.657 1.12 3 2.5 3s2.5-1.343 2.5-3" stroke="#7360f2" stroke-width="2" stroke-linecap="round"/></svg></div><div class="scard-info"><div class="scard-name">Viber</div><div class="scard-handle" dir="ltr">+964 751 048 5057</div></div><div class="scard-arr">↗</div></a>
-    </div>
-  </div>
-</section>
- 
-<div class="divider"></div>
- 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="cta-wrap r">
-      <div class="cta-inner">
-        <div>
-          <div class="sec-badge" style="margin-bottom:16px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Get In Touch</div>
-          <h2 style="font-family:var(--sans);font-size:clamp(1.7rem,3vw,2.6rem);font-weight:700;letter-spacing:-1.5px;color:var(--text);margin-bottom:12px;">پەیوەندیم پێ بکە</h2>
-          <p style="color:var(--text2);font-size:.98rem;line-height:1.75;max-width:380px;">هەمیشە ئامادەی قسەکردنم — لە ڕێگەی واتسئاپ یان تیلیگرام پەیامم بنێرە.</p>
-        </div>
-        <div class="cta-btns">
-          <div class="mag-wrap" data-magnetic>
-            <a href="https://wa.me/9647510485057" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>WhatsApp
-            </a>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS (COMPLETED) -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-badge r">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+        </svg>
+        My Work
+      </div>
+      <h2 class="sec-title r">پڕۆژە تەواوبووەکان</h2>
+      <p class="sec-sub r">ئەو پڕۆژانەی بە تەواوی بەرهەمهێنراون و کاریان پێدەکرێت.</p>
+
+      <div class="projects-grid">
+
+        <!-- PORTFOLIO WEBSITE -->
+        <div class="proj-card r" data-modal="1" data-title="mhamad.me"
+          data-desc="پرۆفایلی کەسی — وێبسایتی پۆرتفۆلیۆی کەسیم کە بە HTML، CSS و JavaScript دروستم کردووە."
+          data-tag="Portfolio" data-img="image.png" data-url="https://mhamadrebae-pixel.github.io/my-profile">
+          <div class="proj-preview">
+            <img src="image.png" alt="mhamad.me" loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="proj-preview-svg" style="display:none;background:linear-gradient(135deg,#0a0a1a,#0d1117);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#0d1117" />
+                <rect x="0" y="0" width="380" height="28" fill="#111" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+                <rect x="24" y="50" width="70" height="9" rx="4" fill="#0070f3" opacity=".9" />
+                <rect x="24" y="68" width="190" height="20" rx="5" fill="#ededed" opacity=".85" />
+                <rect x="24" y="132" width="88" height="28" rx="8" fill="#0070f3" opacity=".9" />
+                <circle cx="310" cy="110" r="55" fill="#0070f3" opacity=".06" /><text x="310" y="116"
+                  text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="700" fill="#0070f3">M</text>
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
           </div>
-          <div class="mag-wrap" data-magnetic>
-            <a href="https://t.me/mham4d_01" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>Telegram
-            </a>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">mhamad.me</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">پرۆفایلی کەسی — ئەمە خودی ئەم وێبسایتەیە.</div>
+            <div class="proj-foot"><span class="proj-tag">Portfolio</span><span class="proj-live">Live</span></div>
+          </div>
+        </div>
+
+        <!-- KOGA RASTI -->
+        <div class="proj-card r r-d1" data-modal="1" data-title="کۆگا راستی"
+          data-desc="وێبسایتێک بۆ کۆگا — فرۆشتن و پیشاندانی کاڵا بە شێوازێکی مۆدێرن و کارامە." data-tag="Web App"
+          data-img="image copy.png" data-url="https://mhamadrebae-pixel.github.io/kogay-rasty/">
+          <div class="proj-preview">
+            <img src="image copy.png" alt="کۆگا راستی" loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="proj-preview-svg" style="display:none;background:linear-gradient(135deg,#0a1a0a,#0d1a12);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#0d1a12" />
+                <rect x="0" y="0" width="380" height="28" fill="#111f14" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+                <rect x="0" y="28" width="380" height="48" fill="#0d1f10" />
+                <rect x="24" y="40" width="90" height="10" rx="4" fill="#25d366" opacity=".8" />
+                <rect x="20" y="94" width="100" height="62" rx="8" fill="#1a2e1c" stroke="#25d366" stroke-width="1"
+                  stroke-opacity=".3" />
+                <rect x="140" y="94" width="100" height="62" rx="8" fill="#1a2e1c" stroke="#25d366" stroke-width="1"
+                  stroke-opacity=".3" />
+                <rect x="260" y="94" width="100" height="62" rx="8" fill="#1a2e1c" stroke="#25d366" stroke-width="1"
+                  stroke-opacity=".3" />
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">کۆگا راستی</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">وێبسایتێک بۆ کۆگا — فرۆشتن و پیشاندانی کاڵا.</div>
+            <div class="proj-foot"><span class="proj-tag">Web App</span><span class="proj-live">Live</span></div>
+          </div>
+        </div>
+
+        <!-- CAFE & RESTAURANT QR MENU 
+        <div class="proj-card r r-d2" data-modal="1" data-title="سیستەمی مێنیوی کافێ"
+          data-desc="سیستەمی مێنیوی دیجیتاڵی بە QR Code بۆ کافێ و ڕێستۆرانتەکان بە دیزاینی مۆدێرن و داواکاری خێرا."
+          data-tag="QR Menu System" data-img="" data-url="#">
+          <div class="proj-preview">
+            <div class="proj-preview-svg" style="display:flex;background:linear-gradient(135deg,#1a0d0a,#26140f);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#26140f" />
+                <rect x="0" y="0" width="380" height="28" fill="#1c0e0b" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+                <rect x="24" y="50" width="110" height="12" rx="4" fill="#f97316" opacity=".9" />
+                <rect x="24" y="75" width="180" height="16" rx="4" fill="#e2e8f0" opacity=".85" />
+                <rect x="24" y="130" width="90" height="30" rx="6" fill="#f97316" opacity=".9" />
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">سیستەمی مێنیوی کافێ</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">مێنیوی دیجیتاڵی بۆ کافێ و ڕێستۆرانت بە QR Code.</div>
+            <div class="proj-foot"><span class="proj-tag">QR Menu</span><span class="proj-live">Live</span></div>
+          </div>
+
+        </div>
+
+                -->
+
+        <!-- TAXI & DELIVERY SYSTEM 
+        <div class="proj-card r r-d3" data-modal="1" data-title="سیستەمی تاکسی و گەیاندن"
+          data-desc="پلاتفۆرمی ئۆنلاین بۆ داواکردنی تاکسی و گەیاندنی کاڵا بە سیستەمی دیاری کردنی شوێن لەسەر نەخشە."
+          data-tag="Delivery Platform" data-img="" data-url="#">
+          <div class="proj-preview">
+            <div class="proj-preview-svg" style="display:flex;background:linear-gradient(135deg,#1a180a,#26230f);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#26230f" />
+                <rect x="0" y="0" width="380" height="28" fill="#1c1a0b" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+                <rect x="24" y="50" width="100" height="12" rx="4" fill="#eab308" opacity=".9" />
+                <rect x="24" y="75" width="200" height="16" rx="4" fill="#e2e8f0" opacity=".85" />
+                <rect x="24" y="130" width="90" height="30" rx="6" fill="#eab308" opacity=".9" />
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">سیستەمی تاکسی و گەیاندن</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">پلاتفۆرمی ئۆنلاین بۆ تاکسی و گەیاندنی خێرا.</div>
+            <div class="proj-foot"><span class="proj-tag">Taxi & Booking</span><span class="proj-live">Live</span></div>
+          </div>
+        </div>
+        
+                -->
+
+        <!-- 2+2=1 | KURDISTAN UNITY (CREATIVE INTERACTIVE UI) -->
+        <div class="proj-card r r-d4" data-modal="1" data-title="2+2=1 | یەکگرتن"
+          data-desc="پڕۆژەی دیزاین و فڕۆنتێندی کارلێککار (Interactive UI) بە ناونیشانی '2+2=1 هێز لە یەکگرتندایە' لەگەڵ ئەنیمەیشنی تەنۆلکەکان، شاشەی شووشەیی (Glassmorphism)، و جوڵەی سێ ڕەهەندی بە جوڵەی ماوس (3D Parallax)."
+          data-tag="Creative Web UI" data-img=""
+          data-url="https://mhamadrebae-pixel.github.io/kurdistan/kurdistan-halabja.html">
+          <div class="proj-preview">
+            <div class="proj-preview-svg" style="display:flex;background:linear-gradient(135deg,#0a1510,#102a1e);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <defs>
+                  <linearGradient id="kurdGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ef4444" />
+                    <stop offset="50%" stop-color="#facc15" />
+                    <stop offset="100%" stop-color="#10b981" />
+                  </linearGradient>
+                  <radialGradient id="glowG" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <rect width="380" height="200" rx="10" fill="#0d1b14" />
+                <circle cx="190" cy="100" r="90" fill="url(#glowG)" />
+                <rect x="25" y="30" width="330" height="140" rx="16" fill="rgba(255,255,255,0.04)"
+                  stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+
+                <!-- Equation 2 + 2 = 1 -->
+                <text x="190" y="95" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif, system-ui"
+                  font-size="36" font-weight="900" letter-spacing="4">
+                  <tspan fill="#ef4444">2</tspan>
+                  <tspan fill="#ffffff" font-weight="300" opacity="0.8"> + </tspan>
+                  <tspan fill="#facc15">2</tspan>
+                  <tspan fill="#ffffff" font-weight="300" opacity="0.8"> = </tspan>
+                  <tspan fill="#10b981">1</tspan>
+                </text>
+
+                <!-- Subtitle -->
+                <text x="190" y="130" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif" font-size="13"
+                  font-weight="700" fill="#ffffff" opacity="0.9">
+                  هێز لە یەکگرتندایە
+                </text>
+                <text x="190" y="150" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif" font-size="10"
+                  font-weight="400" fill="#94a3b8">
+                  چوار پارچە • Parallax &amp; Particles
+                </text>
+
+                <!-- Bottom Kurdish Flag Gradient Line -->
+                <rect x="55" y="166" width="270" height="3" rx="1.5" fill="url(#kurdGrad)" />
+
+                <!-- Floating decorative particle stars -->
+                <circle cx="60" cy="55" r="2" fill="#ffffff" opacity="0.4" />
+                <circle cx="320" cy="65" r="2.5" fill="#10b981" opacity="0.6" />
+                <circle cx="80" cy="140" r="1.5" fill="#facc15" opacity="0.5" />
+                <circle cx="305" cy="135" r="2" fill="#ef4444" opacity="0.5" />
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">2+2=1 | یەکگرتن</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">پڕۆژەی فڕۆنتێندی کارلێککار — هێز لە یەکگرتندایە بە Parallax و تەنۆلکەکان.</div>
+            <div class="proj-foot"><span class="proj-tag">Creative UI</span><span class="proj-live">Live</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- UNFINISHED / PLAYGROUND SECTION -->
+  <section id="playground">
+    <div class="wrap">
+      <div class="sec-badge r">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path
+            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+        </svg>
+        Playground
+      </div>
+      <h2 class="sec-title r">پڕۆژە تاقیکاری و تەواونەکراوەکان</h2>
+      <p class="sec-sub r">ئەم پڕۆژانە لە ژێر پەرەپێدانداند یان وەکو وەشانی تاقیکاری (Interactive Demo) دانراون. کلیک
+        بکە بۆ کردنەوەیان لە پەڕەیەکی نوێدا.</p>
+
+      <div class="projects-grid">
+
+        <!-- MARKET & STORE MANAGEMENT SYSTEM (FULL POS & INVENTORY) -->
+        <a href="market-system/index.html" target="_blank" rel="noopener" class="proj-card r"
+          style="text-decoration:none">
+          <div class="proj-preview">
+            <div class="proj-preview-svg" style="background:linear-gradient(135deg,#06101e,#0b1d33,#082846);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#0b1d33" />
+                <rect x="0" y="0" width="380" height="28" fill="#06101e" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+
+                <!-- POS Interface Mockup Elements -->
+                <rect x="20" y="44" width="220" height="42" rx="6" fill="#0f2b48" stroke="#1d4ed8" stroke-width="1" />
+                <rect x="32" y="54" width="70" height="10" rx="3" fill="#38bdf8" />
+                <rect x="32" y="69" width="130" height="8" rx="2" fill="#94a3b8" />
+                <rect x="180" y="54" width="50" height="22" rx="4" fill="#10b981" opacity="0.9" />
+                <text x="205" y="69" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700"
+                  fill="#ffffff">POS</text>
+
+                <!-- Items list preview -->
+                <rect x="20" y="96" width="220" height="24" rx="4" fill="#0c233c" />
+                <rect x="32" y="104" width="100" height="8" rx="2" fill="#cbd5e1" />
+                <rect x="190" y="104" width="40" height="8" rx="2" fill="#34d399" />
+
+                <rect x="20" y="126" width="220" height="24" rx="4" fill="#0c233c" />
+                <rect x="32" y="134" width="80" height="8" rx="2" fill="#cbd5e1" />
+                <rect x="190" y="134" width="40" height="8" rx="2" fill="#34d399" />
+
+                <rect x="20" y="156" width="220" height="30" rx="5" fill="#1e3a5f" />
+                <rect x="32" y="165" width="60" height="12" rx="3" fill="#f59e0b" />
+                <rect x="160" y="165" width="70" height="12" rx="3" fill="#10b981" />
+
+                <!-- Receipt & Badge on Right -->
+                <rect x="256" y="44" width="104" height="142" rx="6" fill="#071526" stroke="#334155"
+                  stroke-dasharray="3,3" />
+                <line x1="268" y1="58" x2="348" y2="58" stroke="#38bdf8" stroke-width="2" />
+                <line x1="268" y1="70" x2="330" y2="70" stroke="#64748b" stroke-width="2" />
+                <line x1="268" y1="82" x2="340" y2="82" stroke="#64748b" stroke-width="2" />
+
+                <!-- Barcode mockup -->
+                <rect x="272" y="98" width="4" height="22" fill="#e2e8f0" />
+                <rect x="278" y="98" width="2" height="22" fill="#e2e8f0" />
+                <rect x="282" y="98" width="6" height="22" fill="#e2e8f0" />
+                <rect x="290" y="98" width="3" height="22" fill="#e2e8f0" />
+                <rect x="295" y="98" width="5" height="22" fill="#e2e8f0" />
+                <rect x="302" y="98" width="2" height="22" fill="#e2e8f0" />
+                <rect x="306" y="98" width="7" height="22" fill="#e2e8f0" />
+                <rect x="315" y="98" width="3" height="22" fill="#e2e8f0" />
+                <rect x="320" y="98" width="5" height="22" fill="#e2e8f0" />
+                <rect x="327" y="98" width="2" height="22" fill="#e2e8f0" />
+                <rect x="331" y="98" width="6" height="22" fill="#e2e8f0" />
+                <rect x="339" y="98" width="3" height="22" fill="#e2e8f0" />
+
+                <text x="308" y="134" text-anchor="middle" font-family="monospace" font-size="8"
+                  fill="#94a3b8">869050401001</text>
+
+                <rect x="268" y="148" width="80" height="24" rx="4" fill="#059669" />
+                <text x="308" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="800"
+                  fill="#ffffff">PRINT</text>
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">سیستەمی بەڕێوەبردنی مارکێت و فرۆشگا</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">سیستەمێکی پێشکەوتوو بۆ بەڕێوەبردنی مارکێت؛ خاڵی فرۆشتن (POS)، سکانکردنی بارکۆد بە
+              کامێرا، چاودێری بەرواری بەسەرچوونی کاڵا، دەفتەری قەرزی کڕیاران بە پۆرتاڵی تایبەت و QR Code، بەڕێوەبردنی
+              شفت، قازانج و دەرکردنی پسوولە.</div>
+            <div class="proj-foot">
+              <span class="proj-tag">Full Web App (POS)</span>
+              <span class="proj-tag">HTML5 / CSS / React / JSON</span>
+              <span class="badge b-succ"
+                style="font-size:10px; color:#10b981; border:1px solid rgba(16,185,129,0.3); background:rgba(16,185,129,0.1); padding:2px 6px; border-radius:4px;">✨
+                نوێ • Live Demo</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- DEMO POS/POP SYSTEM CARD -->
+        <a href="demo-system/index.html" target="_blank" rel="noopener" class="proj-card r r-d1"
+          style="text-decoration:none">
+          <div class="proj-preview">
+            <div class="proj-preview-svg" style="background:linear-gradient(135deg,#0f1117,#161b27);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#161b27" />
+                <rect x="0" y="0" width="380" height="28" fill="#0f1117" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+                <rect x="24" y="50" width="100" height="12" rx="4" fill="#4f8ef7" opacity=".9" />
+                <rect x="24" y="75" width="220" height="16" rx="4" fill="#e2e8f0" opacity=".85" />
+                <rect x="24" y="130" width="110" height="32" rx="6" fill="#fbbf24" opacity=".9" />
+                <circle cx="310" cy="110" r="45" fill="#4f8ef7" opacity=".1" />
+                <text x="310" y="116" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700"
+                  fill="#4f8ef7">POP</text>
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">سیستەمی بەڕێوەبردنی کاڵا (POP/POS)</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">سیستەمێکی بەڕێوەبردنی کۆگا، قازانج و قەرزی کڕیاران بە شێوازی Interactive Demo.</div>
+            <div class="proj-foot">
+              <span class="proj-tag">Full Web System</span>
+              <span class="badge b-warn"
+                style="font-size:10px; color:#fbbf24; border:1px solid rgba(251,191,36,0.3); padding:2px 6px; border-radius:4px;">In
+                Progress</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ANALYTICS DASHBOARD PROJECT -->
+        <a href="demo-dashboard/index.html" target="_blank" rel="noopener" class="proj-card r r-d2"
+          style="text-decoration:none">
+          <div class="proj-preview">
+            <div class="proj-preview-svg" style="background:linear-gradient(135deg,#170f1c,#25162e);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <rect width="380" height="200" rx="8" fill="#25162e" />
+                <rect x="0" y="0" width="380" height="28" fill="#170f1c" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+                <rect x="24" y="50" width="120" height="12" rx="4" fill="#a855f7" opacity=".9" />
+                <rect x="24" y="75" width="190" height="16" rx="4" fill="#e2e8f0" opacity=".85" />
+                <circle cx="310" cy="110" r="45" fill="#a855f7" opacity=".1" />
+                <text x="310" y="116" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700"
+                  fill="#a855f7">DASH</text>
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">داشبۆردی شیكاری (Analytics UI)</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">داشبۆردی شیكاری بۆ بەڕێوەبردنی ئامار، فرۆش، چارتەکان و بەکارهێنەران.</div>
+            <div class="proj-foot">
+              <span class="proj-tag">Analytics Dashboard</span>
+              <span class="badge b-succ"
+                style="font-size:10px; color:#a855f7; border:1px solid rgba(168,85,247,0.3); background:rgba(168,85,247,0.1); padding:2px 6px; border-radius:4px;">Live Demo</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- VISIT NAWROLI TOURISM PROJECT CARD -->
+        <a href="nawroli-tourism/index.html" target="_blank" rel="noopener" class="proj-card r r-d3"
+          style="text-decoration:none">
+          <div class="proj-preview">
+            <img src="nawroli-tourism/images/hero.jpg" alt="گەشتی نەوڕۆڵی" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="proj-preview-svg" style="display:none;background:linear-gradient(135deg,#04221e,#0b3d36,#0a4d44);">
+              <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" width="90%">
+                <defs>
+                  <linearGradient id="natureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0f766e" />
+                    <stop offset="100%" stop-color="#059669" />
+                  </linearGradient>
+                  <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2" />
+                    <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2" />
+                  </linearGradient>
+                </defs>
+                <rect width="380" height="200" rx="8" fill="#0b3d36" />
+                <rect x="0" y="0" width="380" height="28" fill="#04221e" />
+                <circle cx="16" cy="14" r="5" fill="#ff5f57" />
+                <circle cx="30" cy="14" r="5" fill="#febc2e" />
+                <circle cx="44" cy="14" r="5" fill="#28c840" />
+
+                <!-- Mountain Silhouettes -->
+                <path d="M 30 130 L 100 70 L 170 130 Z" fill="#042a24" opacity="0.8" />
+                <path d="M 120 130 L 210 50 L 300 130 Z" fill="#063c33" opacity="0.9" />
+                <path d="M 240 130 L 310 75 L 370 130 Z" fill="#042a24" opacity="0.7" />
+
+                <!-- River Stream Waves -->
+                <path d="M 0 145 Q 95 135 190 145 T 380 145 L 380 200 L 0 200 Z" fill="url(#riverGrad)" />
+                <path d="M 0 160 Q 95 150 190 160 T 380 160 L 380 200 L 0 200 Z" fill="#03201c" opacity="0.8" />
+
+                <!-- Main Glass Badge -->
+                <rect x="35" y="42" width="310" height="92" rx="12" fill="rgba(6,78,59,0.5)"
+                  stroke="rgba(20,184,166,0.3)" stroke-width="1.2" />
+
+                <!-- Brand Avatar Circle -->
+                <circle cx="78" cy="88" r="26" fill="url(#natureGrad)" stroke="#2dd4bf" stroke-width="1.5" />
+                <text x="78" y="97" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif" font-size="24"
+                  font-weight="900" fill="#ffffff">ن</text>
+
+                <!-- Titles and Highlights -->
+                <text x="120" y="78" font-family="'Noto Sans Arabic', sans-serif" font-size="16" font-weight="900"
+                  fill="#ffffff">گەشتی نەوڕۆڵی</text>
+                <text x="120" y="96" font-family="sans-serif" font-size="11" font-weight="700" fill="#2dd4bf"
+                  letter-spacing="1.5">VISIT NAWROLI • HALABJA</text>
+
+                <!-- Feature Pills -->
+                <rect x="120" y="106" width="62" height="18" rx="9" fill="rgba(20,184,166,0.2)"
+                  stroke="rgba(45,212,191,0.4)" stroke-width="0.8" />
+                <text x="151" y="119" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif" font-size="9"
+                  font-weight="700" fill="#5eead4">کەپری ئاو</text>
+
+                <rect x="188" y="106" width="68" height="18" rx="9" fill="rgba(20,184,166,0.2)"
+                  stroke="rgba(45,212,191,0.4)" stroke-width="0.8" />
+                <text x="222" y="119" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif" font-size="9"
+                  font-weight="700" fill="#5eead4">خانووی بەکرێ</text>
+
+                <rect x="262" y="106" width="56" height="18" rx="9" fill="rgba(20,184,166,0.2)"
+                  stroke="rgba(45,212,191,0.4)" stroke-width="0.8" />
+                <text x="290" y="119" text-anchor="middle" font-family="'Noto Sans Arabic', sans-serif" font-size="9"
+                  font-weight="700" fill="#5eead4">گەلەری</text>
+
+                <!-- Floating Star / Pin Icon -->
+                <circle cx="318" cy="62" r="10" fill="#14b8a6" opacity="0.2" />
+                <text x="318" y="66" text-anchor="middle" font-size="11">📍</text>
+              </svg>
+            </div>
+            <div class="proj-preview-overlay"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-top">
+              <div class="proj-name">گەشتی نەوڕۆڵی (Visit Nawroli)</div><span class="proj-arrow">↗</span>
+            </div>
+            <div class="proj-desc">پڕۆژەی وێبسایتی گەشتیاری مۆدێرن بۆ ناساندنی ناوچەی نەوڕۆڵی لە هەڵەبجە؛ ناساندنی کەپری
+              سەر ئاو، خانووی گەشتیاری، بەلەم، ژینگەی سروشتی، نەخشە، گەلەری و گۆڕینی زمان (Kurdish / English).</div>
+            <div class="proj-foot">
+              <span class="proj-tag">Tourism Web App</span>
+              <span class="proj-tag">HTML5 / CSS3 / JS / i18n</span>
+              <span class="badge b-succ"
+                style="font-size:10px; color:#14b8a6; border:1px solid rgba(20,184,166,0.3); background:rgba(20,184,166,0.1); padding:2px 6px; border-radius:4px;">🌿
+                گەشتیاری • Live Demo</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOCIALS -->
+  <section id="socials">
+    <div class="wrap">
+      <div class="sec-badge r"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" />
+        </svg>Find Me</div>
+      <h2 class="sec-title r">ئەکاونتەکانم</h2>
+      <p class="sec-sub r">لە هەر یەکێک لە پلاتفۆرمەکانی خوارەوە پەیوەندیم پێ بکە.</p>
+      <div class="social-grid">
+        <a href="https://www.instagram.com/mham4d_01?igsh=MWNlZW43eHQ5a29ieg%3D%3D&utm_source=qr" target="_blank"
+          rel="noopener" class="scard sc-ig r">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#e1306c" stroke-width="2" />
+              <circle cx="12" cy="12" r="4.5" stroke="#e1306c" stroke-width="2" />
+              <circle cx="17.8" cy="6.2" r="1.3" fill="#e1306c" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">Instagram</div>
+            <div class="scard-handle">@mham4d_01</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+        <a href="https://wa.me/9647510485057" target="_blank" rel="noopener" class="scard sc-wa r r-d1">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 1.935.549 3.741 1.5 5.27L2 22l4.73-1.5A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+                stroke="#25d366" stroke-width="2" />
+              <path d="M8.5 9.5c.4 1.8 2.2 3.6 4 4" stroke="#25d366" stroke-width="2" stroke-linecap="round" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">WhatsApp</div>
+            <div class="scard-handle" dir="ltr">+964 751 048 5057</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+        <a href="https://snapchat.com/t/mhvFnDjM" target="_blank" rel="noopener" class="scard sc-sn r r-d2">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 3C9.2 3 7 5.2 7 8v2.5c-.8.1-2 .5-2 1.5s1.2 1.2 1.5 1.3c-.2.6-.7 1.7-2 2.2.3.5 1.7.8 2.5.9.3.7 1.2 2.1 5 2.1s4.7-1.4 5-2.1c.8-.1 2.2-.4 2.5-.9-1.3-.5-1.8-1.6-2-2.2.3-.1 1.5-.3 1.5-1.3s-1.2-1.4-2-1.5V8c0-2.8-2.2-5-5-5z"
+                stroke="#f9d000" stroke-width="2" stroke-linejoin="round" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">Snapchat</div>
+            <div class="scard-handle">mhvFnDjM</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+        <a href="https://www.tiktok.com/@mham4d_01" target="_blank" rel="noopener" class="scard sc-tt r">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12a4 4 0 104 4V4c.667 1.667 2 4 5 5" stroke="#ff2d55" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">TikTok</div>
+            <div class="scard-handle">@mham4d_01</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+        <a href="https://t.me/mham4d_01" target="_blank" rel="noopener" class="scard sc-tg r r-d1">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#2aabee" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">Telegram</div>
+            <div class="scard-handle">@mham4d_01</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+        <a href="https://www.facebook.com/share/1CH9Kmob1T/" target="_blank" rel="noopener" class="scard sc-fb r r-d2">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877f2" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">Facebook</div>
+            <div class="scard-handle">mhamad</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+        <a href="viber://chat?number=9647510485057" class="scard sc-vb r">
+          <div class="scard-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2C7 2 3 5.686 3 10.2c0 2.64 1.3 4.994 3.3 6.55V20l3.4-1.56A10.26 10.26 0 0012 18.4c5 0 9-3.686 9-8.2S17 2 12 2z"
+                stroke="#7360f2" stroke-width="2" />
+              <path d="M9.5 10.5c0 1.657 1.12 3 2.5 3s2.5-1.343 2.5-3" stroke="#7360f2" stroke-width="2"
+                stroke-linecap="round" />
+            </svg></div>
+          <div class="scard-info">
+            <div class="scard-name">Viber</div>
+            <div class="scard-handle" dir="ltr">+964 751 048 5057</div>
+          </div>
+          <div class="scard-arr">↗</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-wrap r">
+        <div class="cta-inner">
+          <div>
+            <div class="sec-badge" style="margin-bottom:16px;"><svg width="10" height="10" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>Get In Touch</div>
+            <h2
+              style="font-family:var(--sans);font-size:clamp(1.7rem,3vw,2.6rem);font-weight:700;letter-spacing:-1.5px;color:var(--text);margin-bottom:12px;">
+              پەیوەندیم پێ بکە</h2>
+            <p style="color:var(--text2);font-size:.98rem;line-height:1.75;max-width:380px;">هەمیشە ئامادەی قسەکردنم —
+              لە ڕێگەی واتسئاپ یان تیلیگرام پەیامم بنێرە.</p>
+          </div>
+          <div class="cta-btns">
+            <div class="mag-wrap" data-magnetic>
+              <a href="https://wa.me/9647510485057" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>WhatsApp
+              </a>
+            </div>
+            <div class="mag-wrap" data-magnetic>
+              <a href="https://t.me/mham4d_01" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round">
+                  <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" />
+                </svg>Telegram
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
- 
-<footer>
-  <div class="wrap">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <div class="footer-logo-box">M</div>
-        <span class="footer-logo-name">mhamad</span>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <div class="footer-logo-box">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <defs>
+                <linearGradient id="footGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0070f3" />
+                  <stop offset="50%" stop-color="#7928ca" />
+                  <stop offset="100%" stop-color="#f81ce5" />
+                </linearGradient>
+              </defs>
+              <rect width="36" height="36" rx="8" fill="url(#footGrad)" />
+              <path d="M10 25V11L15.5 19.5L18 19.5L20.5 19.5L26 11V25" stroke="#ffffff" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="18" cy="24.5" r="1.5" fill="#00d4aa" />
+            </svg>
+          </div>
+          <span class="footer-logo-name">mhamad<span style="color:var(--accent)">.</span></span>
+        </div>
+        <div class="footer-copy">Web Developer · Halabja · Kurdistan · 2026</div>
       </div>
-      <div class="footer-copy">Web Developer · Halabja · Kurdistan · 2025</div>
     </div>
-  </div>
-</footer>
- 
-<button id="scrollTop" aria-label="Scroll to top">
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
- 
-<script>
-/* ══ 1. LOADER ══ */
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),950));
- 
-/* ══ 2. THEME ══ */
-const html=document.documentElement;
-applyTheme(localStorage.getItem('theme')||'dark');
-document.getElementById('themeBtn').addEventListener('click',()=>{
-  const n=html.dataset.theme==='dark'?'light':'dark';
-  applyTheme(n);localStorage.setItem('theme',n);
-});
-function applyTheme(t){
-  html.dataset.theme=t;
-  document.getElementById('iconSun').style.display=t==='light'?'block':'none';
-  document.getElementById('iconMoon').style.display=t==='dark'?'block':'none';
-  if(window._ptColor!==undefined) window._ptColor=t==='dark'?'rgba(0,112,243,':'rgba(0,80,180,';
-}
- 
-/* ══ 3. SMOOTH ANCHOR SCROLL ══ */
-const lenis = null;
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
-    if(!target)return;
-    e.preventDefault();
-    target.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
- 
-/* ══ 4. FULL-PAGE PARTICLES CANVAS (Feature 1 + 3) ══ */
-(function(){
-  const canvas=document.getElementById('bg-canvas');
-  const ctx=canvas.getContext('2d');
-  let W,H; window._ptColor='rgba(0,112,243,';
-  const mouse={x:-9999,y:-9999};
- 
-  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-  resize(); window.addEventListener('resize',resize);
-  window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
- 
-  // Create particles spread across full page height
-  const COUNT=160;
-  const pts=Array.from({length:COUNT},()=>({
-    x:Math.random()*window.innerWidth,
-    y:Math.random()*window.innerHeight,
-    vx:(Math.random()-.5)*.3,
-    vy:(Math.random()-.5)*.3,
-    r:Math.random()*1.8+.5,
-    o:Math.random()*.6+.2
-  }));
- 
-  function draw(){
-    // Resize canvas each frame to always cover viewport
-    if(canvas.width!==window.innerWidth||canvas.height!==window.innerHeight){
-      canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+  </footer>
+
+  <button id="scrollTop" aria-label="Scroll to top">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+      stroke-linecap="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <script>
+
+    /* ══ 0. AUTO SCROLL TO TOP ON RELOAD ══ */
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
     }
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    pts.forEach(p=>{
-      // mouse repel
-      const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<140){const f=(140-d)/140*0.9;p.vx+=dx/d*f;p.vy+=dy/d*f;}
-      p.vx*=.978;p.vy*=.978;
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;
-      if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=window._ptColor+p.o+')';
-      ctx.fill();
+    window.addEventListener('beforeunload', () => {
+      window.scrollTo(0, 0);
     });
-    // Connection lines
-    for(let i=0;i<pts.length;i++){
-      for(let j=i+1;j<pts.length;j++){
-        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<160){
-          ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
-          ctx.strokeStyle=window._ptColor+(1-d/160)*.18+')';
-          ctx.lineWidth=.6;ctx.stroke();
-        }
-      }
+
+    /* ══ 1. LOADER ══ */
+    window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 950));
+
+    /* ══ 2. THEME ══ */
+    const html = document.documentElement;
+    applyTheme(localStorage.getItem('theme') || 'dark');
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const n = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(n); localStorage.setItem('theme', n);
+    });
+    function applyTheme(t) {
+      html.dataset.theme = t;
+      document.getElementById('iconSun').style.display = t === 'light' ? 'block' : 'none';
+      document.getElementById('iconMoon').style.display = t === 'dark' ? 'block' : 'none';
+      if (window._ptColor !== undefined) window._ptColor = t === 'dark' ? 'rgba(0,112,243,' : 'rgba(0,80,180,';
     }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
- 
-/* ══ 5. MAGNETIC BUTTONS (Feature 1) ══ */
-document.querySelectorAll('[data-magnetic]').forEach(wrap=>{
-  const btn=wrap.querySelector('.btn');
-  if(!btn)return;
-  wrap.addEventListener('mousemove',e=>{
-    const r=wrap.getBoundingClientRect();
-    const x=(e.clientX-r.left-r.width/2)*.35;
-    const y=(e.clientY-r.top-r.height/2)*.35;
-    btn.style.transform=`translate(${x}px,${y}px)`;
-  });
-  wrap.addEventListener('mouseleave',()=>{
-    btn.style.transform='translate(0,0)';
-  });
-});
- 
-/* ══ 6. PAGE TRANSITION ══ */
-const pt=document.getElementById('pageTransition');
-pt.style.transform='scaleY(1)';pt.style.transformOrigin='top';
-requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  pt.style.transition='transform .55s cubic-bezier(.77,0,.175,1)';
-  pt.style.transform='scaleY(0)';
-}));
- 
-/* ══ 7. PROJECT MODAL ══ */
-const modal=document.getElementById('projectModal');
-function openModal(card){
-  document.getElementById('modalTitle').textContent=card.dataset.title||'';
-  document.getElementById('modalDesc').textContent=card.dataset.desc||'';
-  document.getElementById('modalTag').textContent=card.dataset.tag||'';
-  document.getElementById('modalLiveBtn').href=card.dataset.url||'#';
-  const img=document.getElementById('modalImg'),fb=document.getElementById('modalImgFallback');
-  if(card.dataset.img){img.src=card.dataset.img;img.style.display='block';fb.style.display='none';img.onerror=()=>{img.style.display='none';fb.style.display='flex';};}
-  else{img.style.display='none';fb.style.display='flex';}
-  modal.classList.add('open');document.body.style.overflow='hidden';
-}
-function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
-document.querySelectorAll('.proj-card[data-modal]').forEach(c=>c.addEventListener('click',()=>openModal(c)));
-document.getElementById('modalClose').addEventListener('click',closeModal);
-document.getElementById('modalCloseBtn').addEventListener('click',closeModal);
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
- 
-/* ══ 8. GITHUB API ══ */
-(async()=>{
-  const grid=document.getElementById('reposGrid');
-  try{
-    const res=await fetch('https://api.github.com/users/mhamadrebae-pixel/repos?per_page=6&sort=updated');
-    const repos=await res.json();
-    if(!Array.isArray(repos)||!repos.length){grid.innerHTML='<div style="color:var(--text3);font-family:var(--mono);font-size:.75rem;padding:20px;">ڕیپۆزیتۆری نەدۆزرایەوە.</div>';return;}
-    grid.innerHTML=repos.filter(r=>!r.fork).slice(0,6).map(r=>`
-      <a href="${r.html_url}" target="_blank" rel="noopener" class="repo-card">
-        <div class="repo-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>${r.name}</div>
-        <div class="repo-desc">${r.description||'No description'}</div>
-        <div class="repo-meta">${r.language?`<span class="repo-lang">${r.language}</span>`:''}<span class="repo-stars">★ ${r.stargazers_count}</span></div>
-      </a>`).join('');
-  }catch{grid.innerHTML='<div style="color:var(--text3);font-family:var(--mono);font-size:.75rem;padding:20px;">GitHub API error.</div>';}
-})();
- 
-/* ══ 9. CURSOR ══ */
-const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring'),glow=document.getElementById('cursor-glow');
-let mx=0,my=0,rx=0,ry=0,gx=0,gy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function loop(){
-  dot.style.left=mx+'px';dot.style.top=my+'px';
-  rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';
-  gx+=(mx-gx)*.06;gy+=(my-gy)*.06;glow.style.left=gx+'px';glow.style.top=gy+'px';
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a,button,.chip,.stat,.proj-card,.scard,.repo-card,[data-magnetic]').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-});
-document.addEventListener('mousedown',()=>document.body.classList.add('cursor-click'));
-document.addEventListener('mouseup',()=>document.body.classList.remove('cursor-click'));
- 
-/* ══ 10. NAV + SCROLL TOP ══ */
-const nav=document.getElementById('nav'),topBtn=document.getElementById('scrollTop');
-window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled',window.scrollY>30);
-  topBtn.classList.toggle('show',window.scrollY>400);
-},{passive:true});
-topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
- 
-/* ══ 11. SCROLL REVEAL ══ */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('v'),i*55);obs.unobserve(e.target);}});
-},{threshold:0.07});
-document.querySelectorAll('.r').forEach(el=>obs.observe(el));
- 
-/* SKILLS */
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-row').forEach((r,i)=>setTimeout(()=>r.classList.add('animated'),i*130));});
-},{threshold:0.3}).observe(document.getElementById('skillsWrap'));
-</script>
+
+    /* ══ 3. SMOOTH ANCHOR SCROLL ══ */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        if (typeof closeMobileMenu === 'function') closeMobileMenu();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* ══ 4. FULL-PAGE PARTICLES CANVAS (ADAPTIVE LOW-POWER & 60/120FPS GPU ENGINE) ══ */
+    (function () {
+      const canvas = document.getElementById('bg-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d', { alpha: true });
+      let W, H;
+      window._ptColor = 'rgba(0,112,243,';
+      const mouse = { x: -9999, y: -9999 };
+      let pts = [];
+      let maxLineDist = 175;
+      let isVisible = true;
+
+      function getParticleCount() {
+        if (window.innerWidth < 680) return 65;   // بۆ مۆبایلی کۆن و لاواز: کەمترین بەکارهێنانی CPU و باتری
+        if (window.innerWidth < 1024) return 120; // بۆ تابلێت
+        return 220;                               // بۆ کۆمپیوتەر
+      }
+
+      function initParticles() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        maxLineDist = window.innerWidth < 680 ? 95 : 175;
+        const count = getParticleCount();
+        const isMobile = window.innerWidth < 680;
+
+        pts = Array.from({ length: count }, () => ({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - .5) * (isMobile ? .25 : .35),
+          vy: (Math.random() - .5) * (isMobile ? .25 : .35),
+          r: Math.random() * (isMobile ? 1.4 : 2.2) + 0.8,
+          o: Math.random() * .6 + .35
+        }));
+      }
+
+      initParticles();
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initParticles, 200);
+      }, { passive: true });
+
+      window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      }, { passive: true });
+
+      // کارلێکی دەست لێدان لەسەر مۆبایل و تابلێت بە شێوەیەکی زۆر سووک
+      window.addEventListener('touchstart', e => {
+        if (e.touches && e.touches.length > 0) {
+          mouse.x = e.touches[0].clientX;
+          mouse.y = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', e => {
+        if (e.touches && e.touches.length > 0) {
+          mouse.x = e.touches[0].clientX;
+          mouse.y = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        mouse.x = -9999;
+        mouse.y = -9999;
+      }, { passive: true });
+
+      window.addEventListener('touchcancel', () => {
+        mouse.x = -9999;
+        mouse.y = -9999;
+      }, { passive: true });
+
+      // لە کاتی چوونە تابی تر یان قفڵکردنی مۆبایل، ئەنیمەیشنەکە دەوەستێت بۆ سەرفنەکردنی پاتری
+      document.addEventListener('visibilitychange', () => {
+        isVisible = !document.hidden;
+        if (isVisible) requestAnimationFrame(draw);
+      });
+
+      function draw() {
+        if (!isVisible) return;
+        ctx.clearRect(0, 0, W, H);
+
+        const isMobile = window.innerWidth < 680;
+        const ptsLen = pts.length;
+
+        for (let i = 0; i < ptsLen; i++) {
+          const p = pts[i];
+
+          // کاریگەری ماوس و پەنجەی دەست لە کاتی دەستلێدان لەسەر مۆبایل و کۆمپیوتەر
+          if (mouse.x > -1000) {
+            const touchReach = isMobile ? 120 : 155;
+            const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.sqrt(dx * dx + dy * dy);
+            if (d < touchReach) {
+              const f = (touchReach - d) / touchReach * 1.0;
+              p.vx += dx / d * f;
+              p.vy += dy / d * f;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = window._ptColor + ((1 - d / touchReach) * (isMobile ? 0.35 : 0.3)) + ')';
+              ctx.lineWidth = isMobile ? 0.7 : 0.75;
+              ctx.stroke();
+            }
+          }
+
+          p.vx *= .98;
+          p.vy *= .98;
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = W;
+          if (p.x > W) p.x = 0;
+          if (p.y < 0) p.y = H;
+          if (p.y > H) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = window._ptColor + p.o + ')';
+          ctx.fill();
+        }
+
+        // کێشانی هێڵەکانی نێوان خاڵەکان بە خێرایی بەرز
+        for (let i = 0; i < ptsLen; i++) {
+          for (let j = i + 1; j < ptsLen; j++) {
+            const dx = pts[i].x - pts[j].x;
+            const dy = pts[i].y - pts[j].y;
+            const distSq = dx * dx + dy * dy;
+            const maxSq = maxLineDist * maxLineDist;
+
+            if (distSq < maxSq) {
+              const d = Math.sqrt(distSq);
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.strokeStyle = window._ptColor + ((1 - d / maxLineDist) * (isMobile ? 0.22 : 0.28)) + ')';
+              ctx.lineWidth = isMobile ? 0.6 : 0.75;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      requestAnimationFrame(draw);
+    })();
+
+    /* ══ 5. MAGNETIC BUTTONS ══ */
+    document.querySelectorAll('[data-magnetic]').forEach(wrap => {
+      const btn = wrap.querySelector('.btn');
+      if (!btn) return;
+      wrap.addEventListener('mousemove', e => {
+        const r = wrap.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * .35;
+        const y = (e.clientY - r.top - r.height / 2) * .35;
+        btn.style.transform = `translate(${x}px,${y}px)`;
+      });
+      wrap.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0,0)';
+      });
+    });
+
+    /* ══ 6. PAGE TRANSITION ══ */
+    const pt = document.getElementById('pageTransition');
+    pt.style.transform = 'scaleY(1)'; pt.style.transformOrigin = 'top';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      pt.style.transition = 'transform .55s cubic-bezier(.77,0,.175,1)';
+      pt.style.transform = 'scaleY(0)';
+    }));
+
+    /* ══ 7. PROJECT MODAL ══ */
+    const modal = document.getElementById('projectModal');
+    function openModal(card) {
+      document.getElementById('modalTitle').textContent = card.dataset.title || '';
+      document.getElementById('modalDesc').textContent = card.dataset.desc || '';
+      document.getElementById('modalTag').textContent = card.dataset.tag || '';
+      document.getElementById('modalLiveBtn').href = card.dataset.url || '#';
+      const img = document.getElementById('modalImg'), fb = document.getElementById('modalImgFallback');
+      const cardSvg = card.querySelector('.proj-preview-svg');
+
+      if (card.dataset.img && card.dataset.img.trim()) {
+        img.src = card.dataset.img;
+        img.style.display = 'block';
+        fb.style.display = 'none';
+        fb.innerHTML = '';
+        img.onerror = () => {
+          img.style.display = 'none';
+          fb.style.display = 'flex';
+          if (cardSvg) fb.innerHTML = cardSvg.innerHTML;
+        };
+      } else if (cardSvg) {
+        img.style.display = 'none';
+        fb.style.display = 'flex';
+        fb.innerHTML = cardSvg.innerHTML;
+      } else {
+        img.style.display = 'none';
+        fb.style.display = 'flex';
+        fb.innerHTML = `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`;
+      }
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.proj-card[data-modal]').forEach(c => c.addEventListener('click', () => openModal(c)));
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* ══ 8. CURSOR (DESKTOP ONLY - ZERO MOBILE OVERHEAD) ══ */
+    const dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring'), glow = document.getElementById('cursor-glow');
+    if (window.innerWidth > 680 && !('ontouchstart' in window)) {
+      let mx = 0, my = 0, rx = 0, ry = 0, gx = 0, gy = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+      (function loop() {
+        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+        rx += (mx - rx) * .14; ry += (my - ry) * .14; ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+        gx += (mx - gx) * .06; gy += (my - gy) * .06; glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a,button,.chip,.stat,.proj-card,.scard,[data-magnetic]').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+      document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+      document.addEventListener('mouseup', () => document.body.classList.remove('cursor-click'));
+    }
+
+    /* ══ 9. NAV MOBILE TOGGLE & SCROLL TOP ══ */
+    const nav = document.getElementById('nav'), topBtn = document.getElementById('scrollTop');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+      topBtn.classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    function toggleMobileMenu(forceState) {
+      if (!navMenu || !mobileToggle) return;
+      const isOpen = forceState !== undefined ? forceState : !navMenu.classList.contains('open');
+      navMenu.classList.toggle('open', isOpen);
+      mobileToggle.classList.toggle('active', isOpen);
+      mobileToggle.textContent = isOpen ? '✕' : '☰';
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function closeMobileMenu() {
+      toggleMobileMenu(false);
+    }
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navMenu && navMenu.classList.contains('open') && !nav.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu && navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+
+    /* ══ 10. SCROLL REVEAL ══ */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('v'), i * 55); obs.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+    /* SKILLS */
+    new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.querySelectorAll('.skill-row').forEach((r, i) => setTimeout(() => r.classList.add('animated'), i * 130)); });
+    }, { threshold: 0.3 }).observe(document.getElementById('skillsWrap'));
+
+    /* ══ 11. SMOOTH SLIDING NAV INDICATOR (RTL PERFECT FIX) ══ */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-center .nav-link');
+    const navIndicator = document.getElementById('navIndicator');
+    const navCenter = document.getElementById('navMenu');
+
+    function updateIndicator(targetLink) {
+      if (!targetLink || !navIndicator) return;
+      if (window.innerWidth <= 768) {
+        navIndicator.style.opacity = '0';
+        return;
+      }
+
+      const leftPos = targetLink.offsetLeft;
+      const widthPos = targetLink.offsetWidth;
+
+      navIndicator.style.left = `${leftPos}px`;
+      navIndicator.style.width = `${widthPos}px`;
+      navIndicator.style.opacity = '1';
+    }
+
+    function handleScrollSpy() {
+      let current = '';
+      const scrollPosition = window.scrollY + 220;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      // لە سەرەتای پەڕە (Hero Section) بە شێوەی خۆکار دەکەوێتە سەر About
+      if (!current) {
+        current = 'about';
+      }
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+          updateIndicator(link);
+        }
+      });
+    }
+
+    // Hover effect: جوڵانی نەرمی ئیندیکەیتەر لە کاتی بردنەسەری ماوس
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+          updateIndicator(link);
+        }
+      });
+    });
+
+    if (navCenter) {
+      navCenter.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+          const activeLink = document.querySelector('.nav-center .nav-link.active') || navLinks[0];
+          if (activeLink) updateIndicator(activeLink);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    window.addEventListener('load', () => {
+      handleScrollSpy();
+      const activeLink = document.querySelector('.nav-center .nav-link.active') || navLinks[0];
+      if (activeLink) updateIndicator(activeLink);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        const activeLink = document.querySelector('.nav-center .nav-link.active') || navLinks[0];
+        if (activeLink) updateIndicator(activeLink);
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      const activeLink = document.querySelector('.nav-center .nav-link.active') || navLinks[0];
+      if (activeLink) updateIndicator(activeLink);
+    });
+
+    // Run immediately on script execution
+    setTimeout(handleScrollSpy, 50);
+  </script>
 </body>
+
 </html>

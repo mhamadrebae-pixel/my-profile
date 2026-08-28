@@ -1,0 +1,502 @@
+  <!-- ====== index.html ====== -->
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بەڕێوەبردنی کاڵا</title>
+<meta name="description" content="سیستەمی بەڕێوەبردنی کاڵا، قازانج، خەرجی و کڕیار بە شێوەیەکی خێرا و ئۆفلاین.">
+<meta name="application-name" content="بەڕێوەبردنی کاڵا">
+<meta name="theme-color" content="#0f1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="بەڕێوەبردنی کاڵا">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#mainContent">بازدان بۆ ناوەڕۆک</a>
+
+<!-- MOBILE OVERLAY -->
+<button class="sidebar-overlay" type="button" onclick="closeSidebar()" aria-label="داخستنی مێنیو" hidden></button>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="appSidebar" aria-label="مێنیوی سەرەکی" aria-hidden="false">
+  <div class="sb-logo">
+    <div class="ico">📦</div>
+    <div style="flex:1"><h1>بەڕێوەبردنی کاڵا</h1><small>سیستەمی ئابووری v2.4</small></div>
+    <button class="menu-btn sb-close-btn" type="button" onclick="closeSidebar()" aria-label="داخستنی مێنیو">✕</button>
+  </div>
+  <nav class="nav-sec" aria-label="بەشەکانی سیستەم">
+    <div class="nav-ttl">سەرەکی</div>
+    <button class="nav-i active" type="button" data-page="dashboard" onclick="showPage('dashboard')" aria-current="page"><span class="ico">📊</span>داشبۆرد</button>
+    <div class="nav-ttl">کاڵاکان</div>
+    <button class="nav-i" type="button" data-page="products" onclick="showPage('products')"><span class="ico">📦</span>هەموو کاڵاکان</button>
+    <button class="nav-i" type="button" data-page="addProduct" onclick="showPage('addProduct')"><span class="ico">➕</span>کاڵای نوێ</button>
+    <div class="nav-ttl">ئابووری</div>
+    <button class="nav-i" type="button" data-page="profits" onclick="showPage('profits')"><span class="ico">📈</span>قازانج و زەرەر</button>
+    <button class="nav-i" type="button" data-page="expenses" onclick="showPage('expenses')"><span class="ico">💸</span>خەرجییەکان</button>
+    <div class="nav-ttl">ڕێکخستن</div>
+    <button class="nav-i" type="button" data-page="currencies" onclick="showPage('currencies')"><span class="ico">💱</span>دراوەکان</button>
+    <button class="nav-i" type="button" data-page="suppliers" onclick="showPage('suppliers')"><span class="ico">🏪</span>فرۆشیارەکان</button>
+    <button class="nav-i" type="button" data-page="customers" onclick="showPage('customers')"><span class="ico">👥</span>کڕیارەکان</button>
+    <button class="nav-i" type="button" data-page="settings" onclick="showPage('settings')"><span class="ico">⚙️</span>ڕێکخستن و پشتیوانی</button>
+  </nav>
+  <div class="sb-foot">
+    <div style="font-size:10px;color:var(--faint);text-align:center">نسخە ٢.٤</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main" id="mainContent" tabindex="-1">
+  <div class="topbar">
+    <h2 id="pageTitle">📊 داشبۆرد</h2>
+    <div class="topbar-right" style="display:flex;align-items:center;gap:8px;">
+      <span class="badge b-warn" style="font-size:11px;padding:4px 8px;border-radius:6px;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;display:inline-flex;align-items:center;gap:4px;">🧪 دۆخی تاقیکاری</span>
+      <button class="btn btn-ol btn-sm" type="button" onclick="resetDemoToInitial()" style="font-size:11px;padding:4px 9px;" title="گەڕانەوە بۆ داتای سەرەتایی">🔄 سەرەتا</button>
+      <button class="btn btn-ol btn-sm" id="installAppBtn" data-install-app type="button" onclick="installAppPrompt(this)" hidden aria-hidden="true">⬇️ دامەزراندن</button>
+    </div>
+  </div>
+  <!-- ====== DEMO NOTICE BANNER ====== -->
+  <div style="padding:10px 16px 0;">
+    <div style="background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.22);border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text)">
+        <span style="font-size:16px;">🧪</span>
+        <span><strong>دۆخی تاقیکاری (Sandbox Mode):</strong> دەتوانیت کاڵا زیاد بکەیت، بفرۆشیت و هەموو بەشەکان تاقی بکەیتەوە. هیچ داتایەک لە دەرەوە save نابێت و لەگەڵ ڕیستارت یان Refresh هەموو شتێک دەگەڕێتەوە دۆخی سەرەتا.</span>
+      </div>
+      <button class="btn btn-ol btn-sm" onclick="resetDemoToInitial()" style="font-size:11px;padding:3px 8px;border-color:rgba(79,142,247,0.4);color:var(--primary);">گەڕانەوە بۆ سەرەتا</button>
+    </div>
+  </div>
+  <!-- ====== LOW STOCK BANNER ====== -->
+  <div style="padding:8px 16px 0" id="lowStockBanner" role="status" aria-live="polite"></div>
+  <div style="padding:0 16px" id="debtDueBanner" role="status" aria-live="polite"></div>
+  <!-- دوگمەی مۆبایل -->
+  <button class="mobile-menu-fab" type="button" data-sidebar-toggle onclick="openSidebar()" aria-label="کردنەوەی مێنیو" aria-controls="appSidebar" aria-expanded="false">☰</button>
+
+  <!-- ====== DASHBOARD ====== -->
+  <div class="page active" id="pg-dashboard">
+
+    <!-- ئامارە سەرەکیەکان -->
+    <div class="sgrid" id="dashStats"></div>
+
+    <!-- دوگمەی خێرا -->
+    <div class="dash-quick-actions">
+      <button class="dqa-btn dqa-sell" onclick="showPage('products')">💰 فرۆشتن</button>
+      <button class="dqa-btn dqa-load" onclick="showPage('products')">📥 بارکردن</button>
+      <button class="dqa-btn dqa-add"  onclick="showPage('addProduct')">➕ کاڵای نوێ</button>
+    </div>
+
+    <!-- قازانجی مانگانە + قەرز -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="ctitle">📅 ئەم مانگە</div>
+        <div id="dashMonthProfit"></div>
+      </div>
+      <div class="card">
+        <div class="ctitle">💳 قەرزی مانەوە</div>
+        <div id="dashDebt"></div>
+      </div>
+    </div>
+
+    <!-- چارتی قازانجی مانگانە -->
+    <div class="card">
+      <div class="ctitle">📈 قازانج
+        <div class="ca" id="chartRangeBtns">
+          <button class="range-btn active" style="padding:3px 9px;font-size:10px" onclick="setChartRange(6,this)">٦م</button>
+          <button class="range-btn" style="padding:3px 9px;font-size:10px" onclick="setChartRange(12,this)">١٢م</button>
+        </div>
+      </div>
+      <div style="position:relative;height:180px"><canvas id="chartProfit"></canvas></div>
+    </div>
+
+    <!-- باشترین کاڵاکان -->
+    <div class="card">
+      <div class="ctitle">🏆 باشترین کاڵاکان
+        <div class="ca"><button class="btn btn-ol btn-sm" onclick="showPage('products')">هەموو</button></div>
+      </div>
+      <div id="dashTopProds"></div>
+      <div id="chartTopProdsWrap" style="position:relative;height:200px;display:none"><canvas id="chartTopProds"></canvas></div>
+      <div id="chartCostWrap" style="position:relative;height:200px;display:none"><canvas id="chartCost"></canvas></div>
+      <div id="chartCostLegend" style="display:none"></div>
+    </div>
+
+  </div>
+
+  <!-- ====== PRODUCTS LIST ====== -->
+  <div class="page" id="pg-products">
+    <div id="prodsAlert"></div>
+
+    <!-- سەرچاوان + فلتەر -->
+    <div class="prod-toolbar">
+      <div class="prod-search-wrap">
+        <span class="prod-search-ico">🔎</span>
+        <input type="search" id="prodSearchInput" placeholder="گەڕان..."
+          oninput="searchProducts(this.value)"
+          aria-label="گەڕان لە کاڵاکان"
+          class="prod-search-input">
+      </div>
+      <div class="prod-filters">
+        <select id="filterSort" onchange="applyFilters()" class="filter-sel">
+          <option value="date_desc">🕐 نوێترین</option>
+          <option value="profit_desc">📈 قازانج</option>
+          <option value="qty_asc">📦 ستۆک کەم</option>
+          <option value="name_asc">🔤 ناو</option>
+        </select>
+        <select id="filterSupplier" onchange="applyFilters()" class="filter-sel">
+          <option value="">🏪 هەموو</option>
+        </select>
+        <select id="filterDebt" onchange="applyFilters()" class="filter-sel">
+          <option value="">💳 هەموو</option>
+          <option value="has_debt">⚠️ قەرزدار</option>
+          <option value="no_debt">✅ بێ قەرز</option>
+        </select>
+      </div>
+      <div class="prod-filter-count" id="filterCount"></div>
+    </div>
+
+    <div id="prodsList"></div>
+  </div>
+
+  <!-- ====== ADD PRODUCT ====== -->
+  <div class="page" id="pg-addProduct">
+    <div class="card">
+      <div class="ctitle">➕ زیادکردنی کاڵای نوێ</div>
+      <div id="addProdAlert"></div>
+      <div class="fg2">
+        <div class="fg c2"><label>ناوی کاڵا *</label><input id="apName" placeholder="بۆ نمونە: ئایفۆن ١٥، تەختەی سیمان..."></div>
+        <div class="fg"><label>بڕ *</label><input id="apQty" type="number" step="0.001" placeholder="0" min="0" inputmode="decimal" oninput="apCalc()"></div>
+        <div class="fg"><label>یەکەی پێوانە</label>
+          <select id="apUnit">
+            <option value="دانە">دانە</option>
+            <option value="kg">kg</option>
+            <option value="g">g</option>
+            <option value="متر">متر</option>
+            <option value="لیتر">لیتر</option>
+            <option value="بستە">بستە</option>
+            <option value="کارتۆن">کارتۆن</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- نرخی کڕین -->
+      <div class="fg2" style="margin-bottom:4px">
+        <div class="fg"><label>کۆی نرخ</label>
+          <input id="apBuyPrice" type="number" step="0.01" placeholder="0.00" inputmode="decimal" oninput="apCalc()">
+        </div>
+        <div class="fg"><label>دراو</label>
+          <select id="apBuyCurrency" onchange="apCurrChange()">
+            <option value="USD" selected>🇺🇸 USD</option>
+            <option value="IQD">🇮🇶 IQD</option>
+            <option value="TRY">🇹🇷 TRY</option>
+            <option value="EUR">🇪🇺 EUR</option>
+            <option value="IRR">🇮🇷 IRR</option>
+            <option value="SAR">🇸🇦 SAR</option>
+            <option value="CNY">🇨🇳 CNY</option>
+          </select>
+        </div>
+      </div>
+      <div id="apDualBox"></div>
+
+      <div class="fg2">
+        <div class="fg"><label>فرۆشیار</label>
+          <select id="apSupplier"><option value="">— بەبێ فرۆشیار —</option></select>
+        </div>
+        <div class="fg"><label>بەروار</label><input id="apDate" type="date"></div>
+        <div class="fg"><label>🧾 ڕەسید</label>
+          <input id="apRaseed" type="number" step="0.01" placeholder="0.00" inputmode="decimal" oninput="apCalc()">
+        </div>
+        <div class="fg"><label>💼 عومولە</label>
+          <input id="apOmola" type="number" step="0.01" placeholder="0.00" inputmode="decimal" oninput="apCalc()">
+        </div>
+        <div class="fg c2"><label>تێبینی</label><input id="apNote" placeholder="..."></div>
+      </div>
+      <div id="apPreview" class="mt8"></div>
+      <div style="display:flex;gap:8px;margin-top:14px">
+        <button id="addProductBtn" class="btn btn-p" onclick="doAddProduct()">✅ زیادکردن</button>
+        <button class="btn btn-g" onclick="showPage('products')">پاشگەزبوونەوە</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== PROFITS ====== -->
+  <div class="page" id="pg-profits">
+    <div class="card">
+      <div class="ctitle">📅 ماوەی بەروار</div>
+      <div class="range-row" id="rangeRow">
+        <button class="range-btn" onclick="setRange('week',this)">٧ ڕۆژ</button>
+        <button class="range-btn active" onclick="setRange('month',this)">ئەم مانگە</button>
+        <button class="range-btn" onclick="setRange('year',this)">ئەم ساڵە</button>
+        <button class="range-btn" onclick="setRange('all',this)">هەموو</button>
+        <button class="range-btn" onclick="setRange('custom',this)">دیاریکردن</button>
+      </div>
+      <div id="customRangeRow" style="display:none;margin-top:10px" class="fg2">
+        <div class="fg"><label>لە</label><input type="date" id="rangeFrom"></div>
+        <div class="fg"><label>بۆ</label><input type="date" id="rangeTo"></div>
+      </div>
+      <div id="customRangeApply" style="display:none;margin-top:8px">
+        <button class="btn btn-p btn-sm" onclick="renderProfits()">📊 نیشاندان</button>
+      </div>
+    </div>
+    <div id="profitsContent"></div>
+  </div>
+
+  <!-- ====== EXPENSES ====== -->
+  <div class="page" id="pg-expenses">
+    <div id="expenseAlert"></div>
+
+    <div class="card">
+      <div class="ctitle">💸 خەرجییەکان</div>
+      <div class="sgrid" id="expenseStats"></div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">➕ زیادکردنی خەرجی</div>
+      <div class="fg2">
+        <div class="fg">
+          <label>جۆری خەرجی *</label>
+          <select id="expCategory">
+            <option value="">هەڵبژێرە</option>
+            <option value="کرێی گواستنەوە">کرێی گواستنەوە</option>
+            <option value="باج">باج</option>
+            <option value="ڕەسید">ڕەسید</option>
+            <option value="عومولە">عومولە</option>
+            <option value="کرێی مەخزەن">کرێی مەخزەن</option>
+            <option value="خەرجی تر">خەرجی تر</option>
+            <option value="تر">تر</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>بڕ *</label>
+          <input id="expAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+        </div>
+        <div class="fg">
+          <label>دراو</label>
+          <select id="expCurrency" class="curr-select"></select>
+        </div>
+        <div class="fg">
+          <label>بەروار *</label>
+          <input id="expDate" type="date">
+        </div>
+        <div class="fg">
+          <label>کاڵا</label>
+          <select id="expProduct">
+            <option value="">گشتی</option>
+          </select>
+        </div>
+        <div class="fg c2">
+          <label>تێبینی</label>
+          <input id="expNote" placeholder="...">
+        </div>
+      </div>
+      <button class="btn btn-p" onclick="doAddExpense()">✅ زیادکردن</button>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">🧾 مێژووی خەرجی</div>
+
+      <div class="prod-toolbar">
+        <div class="prod-search-wrap">
+          <span class="prod-search-ico">🔎</span>
+          <input type="search" id="expenseSearch" placeholder="گەڕان بە جۆر، تێبینی یان کاڵا..." oninput="filterExpenses()" class="prod-search-input">
+        </div>
+
+        <div class="prod-filters">
+          <select id="expenseFilterCategory" onchange="filterExpenses()" class="filter-sel">
+            <option value="">هەموو جۆرەکان</option>
+          </select>
+          <select id="expenseFilterType" onchange="filterExpenses()" class="filter-sel">
+            <option value="all">هەموو</option>
+            <option value="product">سەر بە کاڵا</option>
+            <option value="general">گشتی</option>
+          </select>
+          <select id="expenseSort" onchange="filterExpenses()" class="filter-sel">
+            <option value="date_desc">نوێترین</option>
+            <option value="date_asc">کۆنترین</option>
+          </select>
+        </div>
+
+        <div class="prod-filter-count" id="expenseFilterCount"></div>
+      </div>
+
+      <div id="expenseList"></div>
+      <div id="expensePagination"></div>
+    </div>
+  </div>
+  <!-- ====== CURRENCIES ====== -->
+  <div class="page" id="pg-currencies">
+    <div id="currAlert"></div>
+    <div class="card">
+      <div class="ctitle">💱 نرخی دراوەکان
+        <div class="ca">
+          <span id="rateLastUpdate" style="font-size:10px;color:var(--muted);font-weight:400"></span>
+          <button class="btn btn-ol btn-sm" onclick="fetchLiveRates()" id="btnFetchRates">🔄 نرخی ڕەستەکەی</button>
+        </div>
+      </div>
+      <div id="fetchRateAlert"></div>
+      <div id="currCards"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">✏️ گۆڕینی نرخ</div>
+      <div class="tw"><table>
+        <thead><tr><th></th><th>کۆد</th><th>ناو</th><th>١ USD =</th><th></th></tr></thead>
+        <tbody id="currTable"></tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">➕ دراوی نوێ</div>
+      <div class="fg2">
+        <div class="fg"><label>کۆد</label><input id="nCCode" placeholder="AUD" maxlength="5"></div>
+        <div class="fg"><label>ناو</label><input id="nCName" placeholder="دۆلاری ئوستراڵیا"></div>
+        <div class="fg"><label>ئاڵا</label><input id="nCFlag" placeholder="🇦🇺"></div>
+        <div class="fg"><label>نماد</label><input id="nCSym" placeholder="A$"></div>
+        <div class="fg c2"><label>نرخ بەرامبەر $1</label><input id="nCRate" type="number" step="any" placeholder="1.55"></div>
+      </div>
+      <button class="btn btn-p btn-sm" onclick="addCurrency()">➕ زیادکردن</button>
+    </div>
+  </div>
+
+  <!-- ====== SUPPLIERS ====== -->
+  <div class="page" id="pg-suppliers">
+    <div id="suppAlert"></div>
+    <div class="card">
+      <div class="ctitle">➕ فرۆشیاری نوێ</div>
+      <div class="fg2">
+        <div class="fg"><label>ناوی فرۆشیار</label><input id="suppName" placeholder="ناو..."></div>
+        <div class="fg"><label>ژمارە تەلەفون</label><input id="suppPhone" placeholder="07XX XXX XXXX" type="tel"></div>
+      </div>
+      <button class="btn btn-p btn-sm" onclick="doAddSupplier()">➕ زیادکردن</button>
+    </div>
+    <div class="card">
+      <div class="ctitle">🏪 فرۆشیارەکان</div>
+      <div id="suppList"></div>
+    </div>
+  </div>
+
+
+  <!-- ====== CUSTOMERS ====== -->
+  <div class="page" id="pg-customers">
+    <div class="card">
+      <div class="ctitle">👥 کڕیارەکان بەپێی کۆی کڕین</div>
+      <div id="customersList"></div>
+    </div>
+  </div>
+
+  <!-- ====== SETTINGS ====== -->
+  <div class="page" id="pg-settings">
+    <div id="settingsAlert"></div>
+
+    <div class="card">
+      <div class="ctitle">☁️ کلاود و هەژمارەکان</div>
+      <div id="cloudStatusPanel"></div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">📤 هاوردە و ناردنەوە</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+        <button class="btn btn-p" onclick="doExport()">💾 Export JSON (پشتیوانی)</button>
+        <label class="btn btn-ol" style="cursor:pointer">📥 Import JSON
+          <input type="file" accept=".json" onchange="doImport(this)" style="display:none">
+        </label>
+      </div>
+      <div class="ctitle" style="border:none;padding:0;margin-top:10px">📊 ڕاپۆرتەکان</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <button class="btn btn-ok" onclick="exportToCSV()">📋 کاڵاکان (CSV)</button>
+        <button class="btn btn-ok" onclick="exportEventsToCSV()">📋 مامەڵەکان (CSV)</button>
+        <button class="btn btn-a" onclick="exportToPDF()">🖨️ ڕاپۆرتی PDF</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ctitle" style="color:var(--bad)">⚠️ سڕینەوەی هەموو داتا</div>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:14px">
+        ئەم کاره هەموو کاڵا، مێژوو و دراوەکان دەسڕێتەوە. گەرانەوەی نییە!
+      </p>
+      <button class="btn btn-bad" onclick="doReset()">🗑️ ڕیسێتکردنی سیستەم</button>
+    </div>
+
+    <div class="card">
+      <div class="ctitle">ℹ️ دەربارەی</div>
+      <p style="color:var(--muted);font-size:13px;line-height:2">
+        سیستەمی بەڕێوەبردنی کاڵا · نسخە ٢.٤<br>
+        داتاکان لە بیرگەی ئۆفلاینی بڕاوزەر پاشەکەوت دەبن (IndexedDB)
+      </p>
+    </div>
+  </div>
+
+</main><!-- /main -->
+
+<!-- SCRIPTS — ئەوردەر گرنگە -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="utils.js"></script>
+<script src="data.js"></script>
+<script src="cloud.js"></script>
+<script src="app.js"></script>
+<script src="codex_patch.js"></script>
+<script>
+  function resetDemoToInitial() {
+    if (confirm('ئایا دڵنیایت دەتەوێت هەموو گۆڕانکارییەکان لاببەیت و بگەڕێیتەوە بۆ داتای سەرەتایی تاقیکاری؟')) {
+      if (window.PMStorage && typeof window.PMStorage.resetDemoData === 'function') {
+        window.PMStorage.resetDemoData();
+      }
+      location.reload();
+    }
+  }
+
+  async function hardResetAndReload() {
+    try {
+      if (window.PMStorage && typeof window.PMStorage.resetDemoData === 'function') {
+        window.PMStorage.resetDemoData();
+      } else if (window.DB && typeof window.DB.clear === 'function') {
+        await Promise.resolve(window.DB.clear());
+      }
+    } catch (resetErr) {
+      console.error('Hard reset failed:', resetErr);
+    } finally {
+      location.reload();
+    }
+  }
+
+  (async () => {
+    try {
+      await initData();
+      if (window.AuthCloud && typeof window.AuthCloud.boot === 'function') {
+        await window.AuthCloud.boot();
+      }
+      fillCurrencySelects();
+      fillSupplierSelect();
+      renderDash();
+      renderLowStockBanner();
+      renderDebtDueBanner();
+    } catch(e) {
+      console.error('Init failed:', e);
+      document.querySelector('.main').innerHTML =
+        '<div style="padding:2rem;text-align:center;direction:rtl">' +
+        '<div style="font-size:2rem;margin-bottom:1rem">⚠️</div>' +
+        '<div style="font-size:16px;font-weight:600;margin-bottom:8px;color:#f87171">هەڵەی سیستەم</div>' +
+        '<div style="font-size:13px;color:#8896b3;margin-bottom:1.5rem">' + e.message + '</div>' +
+        '<button onclick="hardResetAndReload()" ' +
+        'style="padding:10px 24px;border-radius:8px;border:none;background:#f87171;color:#fff;font-size:14px;cursor:pointer;font-family:inherit">' +
+        '🗑️ ڕیسێت و دووبارەبارکردن</button></div>';
+    }
+  })();
+
+  // MODAL CLOSE
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeSidebar(); });
+
+  // GLOBAL ERROR SAFETY NET — هەڵەی نەدیاریکراو
+  window.addEventListener('unhandledrejection', ev => {
+    console.error('Unhandled async error:', ev.reason);
+    const msg = ev.reason?.message || String(ev.reason) || 'هەڵەی نەزانراو';
+    showA('settingsAlert', 'bad', '⚠️ ' + msg);
+  });
+  window.onerror = (msg, src, line) => {
+    console.error('JS Error:', msg, '@', src + ':' + line);
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>داشبۆردی شیكاری • Analytics & Business Dashboard</title>
+  <meta name="description" content="داشبۆردی شیكاری پێشکەوتوو بۆ بەڕێوەبردنی ئامار، فرۆش، بەکارهێنەران و داهات">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans Arabic', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-purple-600 selection:text-white">
+
+  <!-- TOP NAVIGATION -->
+  <header class="glass-panel sticky top-0 z-40 border-b border-slate-800/80 px-4 py-3 sm:px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-900/40 text-white font-black text-lg">
+          📊
+        </div>
+        <div>
+          <h1 class="text-sm sm:text-base font-black text-white">داشبۆردی شیكاری (Analytics Dashboard)</h1>
+          <p class="text-[11px] text-purple-300">ئاماری فرۆش، قازانج، بەکارهێنەران و ڕێژەی گەشەسەندن</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          داتای ڕاستەوخۆ (Live)
+        </span>
+        <a href="../index.html" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all">
+          <span>گەڕانەوە بۆ پۆرتفۆلیۆ</span>
+          <span>←</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 flex-1 space-y-6">
+
+    <!-- KPI STATS ROW -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Total Revenue -->
+      <div class="glass-panel p-5 rounded-2xl relative overflow-hidden group hover:border-purple-500/40 transition-all">
+        <div class="flex items-center justify-between text-slate-400 text-xs mb-3">
+          <span class="font-bold">کۆی داهات (Revenue)</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+18.4% ↗</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-white mono mb-1">$48,290.00</div>
+        <p class="text-xs text-slate-400">بەراورد بە مانگی پێشوو: +$7,520</p>
+        <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition-all"></div>
+      </div>
+
+      <!-- Active Users -->
+      <div class="glass-panel p-5 rounded-2xl relative overflow-hidden group hover:border-cyan-500/40 transition-all">
+        <div class="flex items-center justify-between text-slate-400 text-xs mb-3">
+          <span class="font-bold">بەکارهێنەرانی چالاک</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">+12.2% ↗</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-white mono mb-1">12,450</div>
+        <p class="text-xs text-slate-400">١,٢٤٠ بەکارهێنەر لەم هەفتەیەدا</p>
+        <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
+      </div>
+
+      <!-- Total Orders -->
+      <div class="glass-panel p-5 rounded-2xl relative overflow-hidden group hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between text-slate-400 text-xs mb-3">
+          <span class="font-bold">داواکارییەکان (Orders)</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">+8.7% ↗</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-white mono mb-1">3,892</div>
+        <p class="text-xs text-slate-400">ڕێژەی تەواوبوون: 98.4%</p>
+        <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all"></div>
+      </div>
+
+      <!-- Conversion Rate -->
+      <div class="glass-panel p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-500/40 transition-all">
+        <div class="flex items-center justify-between text-slate-400 text-xs mb-3">
+          <span class="font-bold">ڕێژەی گۆڕین (Conversion)</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+4.1% ↗</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-white mono mb-1">4.65%</div>
+        <p class="text-xs text-slate-400">تێکڕای کاتی سەردان: ٤:١٢ خولەک</p>
+        <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all"></div>
+      </div>
+    </div>
+
+    <!-- CHARTS GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- MAIN INTERACTIVE SALES CHART (2 COLS) -->
+      <div class="glass-panel p-6 rounded-2xl lg:col-span-2 flex flex-col justify-between">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div>
+            <h2 class="text-base font-extrabold text-white">ئاماری گەشەی فرۆشتن بەپێی مانگەکان</h2>
+            <p class="text-xs text-slate-400">بەراوردی داهات بەپێی ڕێژەی فرۆشتنی سەرانسەری ساڵ</p>
+          </div>
+          <div class="flex items-center gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800 text-xs">
+            <button class="px-2.5 py-1 rounded-lg font-bold bg-purple-600 text-white shadow-sm">٢٠٢٦</button>
+            <button class="px-2.5 py-1 rounded-lg font-bold text-slate-400 hover:text-white">٢٠٢٥</button>
+          </div>
+        </div>
+
+        <!-- SVG DYNAMIC BAR CHART -->
+        <div class="w-full h-64 flex items-end justify-between gap-2 sm:gap-4 pt-8 pb-2 px-2">
+          <!-- Jan -->
+          <div class="flex-1 flex flex-col items-center gap-2 group">
+            <span class="text-[10px] mono text-purple-400 opacity-0 group-hover:opacity-100 transition-all">$24k</span>
+            <div class="w-full bg-gradient-to-t from-purple-900/60 to-purple-500 rounded-t-lg h-32 group-hover:brightness-125 transition-all"></div>
+            <span class="text-[11px] font-bold text-slate-400">کانوونی ۲</span>
+          </div>
+          <!-- Feb -->
+          <div class="flex-1 flex flex-col items-center gap-2 group">
+            <span class="text-[10px] mono text-purple-400 opacity-0 group-hover:opacity-100 transition-all">$31k</span>
+            <div class="w-full bg-gradient-to-t from-purple-900/60 to-purple-500 rounded-t-lg h-44 group-hover:brightness-125 transition-all"></div>
+            <span class="text-[11px] font-bold text-slate-400">شوبات</span>
+          </div>
+          <!-- Mar -->
+          <div class="flex-1 flex flex-col items-center gap-2 group">
+            <span class="text-[10px] mono text-purple-400 opacity-0 group-hover:opacity-100 transition-all">$28k</span>
+            <div class="w-full bg-gradient-to-t from-purple-900/60 to-purple-500 rounded-t-lg h-38 group-hover:brightness-125 transition-all"></div>
+            <span class="text-[11px] font-bold text-slate-400">ئازار</span>
+          </div>
+          <!-- Apr -->
+          <div class="flex-1 flex flex-col items-center gap-2 group">
+            <span class="text-[10px] mono text-purple-400 opacity-0 group-hover:opacity-100 transition-all">$42k</span>
+            <div class="w-full bg-gradient-to-t from-purple-900/60 to-purple-500 rounded-t-lg h-56 group-hover:brightness-125 transition-all"></div>
+            <span class="text-[11px] font-bold text-slate-400">نیسان</span>
+          </div>
+          <!-- May -->
+          <div class="flex-1 flex flex-col items-center gap-2 group">
+            <span class="text-[10px] mono text-purple-400 opacity-0 group-hover:opacity-100 transition-all">$36k</span>
+            <div class="w-full bg-gradient-to-t from-purple-900/60 to-purple-500 rounded-t-lg h-48 group-hover:brightness-125 transition-all"></div>
+            <span class="text-[11px] font-bold text-slate-400">ئایار</span>
+          </div>
+          <!-- Jun -->
+          <div class="flex-1 flex flex-col items-center gap-2 group">
+            <span class="text-[10px] mono text-purple-400 opacity-0 group-hover:opacity-100 transition-all">$48k</span>
+            <div class="w-full bg-gradient-to-t from-indigo-600 to-cyan-400 rounded-t-lg h-60 group-hover:brightness-125 transition-all shadow-lg shadow-cyan-900/40"></div>
+            <span class="text-[11px] font-extrabold text-cyan-300">حوزەیران</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAFFIC & PLATFORMS DONUT / PROGRESS -->
+      <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <h2 class="text-base font-extrabold text-white mb-1">سەرچاوەی سەردانکەران</h2>
+          <p class="text-xs text-slate-400 mb-5">دابەشبوونی بەکارهێنەران بەپێی ئامێرەکان</p>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5 font-bold">
+                <span class="text-slate-300">مۆبایل و تابلێت (Mobile)</span>
+                <span class="mono text-cyan-400">68%</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 68%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5 font-bold">
+                <span class="text-slate-300">کۆمپیوتەر (Desktop)</span>
+                <span class="mono text-purple-400">26%</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" style="width: 26%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5 font-bold">
+                <span class="text-slate-300">سەرچاوەی تر (Direct)</span>
+                <span class="mono text-emerald-400">6%</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" style="width: 6%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+          <p class="text-xs font-semibold text-slate-400">⚡ گەشەی خێرای سەردانیکەرانی مۆبایل بە ڕێژەی +٢٤٪</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RECENT TRANSACTIONS TABLE -->
+    <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800/80">
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-extrabold text-white">دواین مامەڵە بازرگانییەکان</h2>
+          <p class="text-xs text-slate-400">لیستی فرۆش و داواکارییە نوێیەکان لە سیستەمدا</p>
+        </div>
+        <button class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+          داگرتنی ڕاپۆرت
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-right text-xs">
+          <thead class="bg-slate-900/60 text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="p-4 font-bold">ژمارەی پسوولە</th>
+              <th class="p-4 font-bold">کڕیار / کۆمپانیا</th>
+              <th class="p-4 font-bold">بەروار</th>
+              <th class="p-4 font-bold">بڕی پارە</th>
+              <th class="p-4 font-bold">شێوازی پارەدان</th>
+              <th class="p-4 font-bold">دۆخ</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60">
+            <tr class="hover:bg-slate-900/40 transition-colors">
+              <td class="p-4 mono font-bold text-purple-400">#INV-8921</td>
+              <td class="p-4 font-bold text-white">کۆمپانیای تەکنەلۆژیای ئاسۆ</td>
+              <td class="p-4 text-slate-400">٢٨ ئابی ٢٠٢٦</td>
+              <td class="p-4 mono font-bold text-emerald-400">$1,450.00</td>
+              <td class="p-4 text-slate-300">FastPay / Visa</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">تەواوکراو</span></td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition-colors">
+              <td class="p-4 mono font-bold text-purple-400">#INV-8920</td>
+              <td class="p-4 font-bold text-white">کۆگای هەڵەبجەی سەردەم</td>
+              <td class="p-4 text-slate-400">٢٨ ئابی ٢٠٢٦</td>
+              <td class="p-4 mono font-bold text-emerald-400">$2,800.00</td>
+              <td class="p-4 text-slate-300">کاش (نەقد)</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">تەواوکراو</span></td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition-colors">
+              <td class="p-4 mono font-bold text-purple-400">#INV-8919</td>
+              <td class="p-4 font-bold text-white">فرۆشگای شاری جوان</td>
+              <td class="p-4 text-slate-400">٢٧ ئابی ٢٠٢٦</td>
+              <td class="p-4 mono font-bold text-emerald-400">$950.00</td>
+              <td class="p-4 text-slate-300">ZainCash</td>
+              <td class="p-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">تەواوکراو</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
+    پڕۆژەی تاقیکاری داشبۆردی شیكاری (Analytics UI) • گەشەپێدراوە لەلایەن mhamad
+  </footer>
+
+</body>
+</html>
